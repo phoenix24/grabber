@@ -1,0 +1,11 @@
+#ignore the following files.
+
+*.pyc
+*.swp
+*~
+.project
+.pydevproject
+.settings
+dev.db
+*.bak
+*gz

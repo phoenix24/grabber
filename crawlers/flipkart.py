@@ -49,7 +49,7 @@ class FlipkartInventory(Crawler):
                     self.get_item_price(item),
                     self.get_item_stock_status(item),
                     self.get_item_delivery_days(item),
-                    #                self.get_item_specifications(item),
+                    #self.get_item_specifications(item),
                     self.get_item_color(item)
                     )
             except:
@@ -71,5 +71,5 @@ def scrape_flipkart_mobiles(strtpage = 1, endpage = 3, nextpg = True):
 
     
 if __name__ == '__main__':
-    scrape_flipkart_mobiles(strtpage = 5, endpage = 6)
+    scrape_flipkart_mobiles(strtpage = 1, endpage = 6)
     

@@ -7,8 +7,14 @@ body {
 }
 
 .grabber-search-box {
-    z-index: 1000px;
     top: 300px;
+    z-index: 1000px;
+    position: fixed;
+}
+
+.grabber-search-bar {
+    top: 50px;
+    z-index: 1000px;
     position: fixed;
 }
 
@@ -29,4 +35,29 @@ body {
 
 .tile {
     display: inline;
+}
+
+::-webkit-scrollbar{
+    width:0.8em;
+    height:0.8em;
+    background-color:#fff;
+}
+::-webkit-scrollbar:hover{
+    background-color:#eee;
+}
+::-webkit-resizer{
+    -webkit-border-radius:4px;
+    background-color:#666;
+}
+::-webkit-scrollbar-thumb{
+    min-height:0.8em;
+    min-width:0.8em;
+    -webkit-border-radius:4px;
+    background-color: #ddd;
+}
+::-webkit-scrollbar-thumb:hover{
+    background-color: #bbb;
+}
+::-webkit-scrollbar-thumb:active{
+    background-color:#888;
 }

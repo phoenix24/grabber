@@ -1,6 +1,6 @@
 body {
     font-family: "Helvetica Neue", "Helvetica", "Calibri", "sans"
-    padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+    /* padding-top: 60px; */ /* 60px to make the container go all the way to the bottom of the topbar */
 }
 
 .header {
@@ -26,8 +26,14 @@ body {
     color: #000000;
 }
 
+/* .container { */
+/*     width: 99%; */
+/* } */
+
 .grabber-search-box {
-    margin-top: 200px;
+    z-index: 1000px;
+    top: 300px;
+    position: absolute;
 }
 
 .grabber-search {

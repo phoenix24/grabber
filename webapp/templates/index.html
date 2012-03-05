@@ -1,12 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
+    <meta name="author" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Grabber Comparator</title>
 
     <link rel="stylesheet" href="/static/css/bootstrap.min.css" media="screen, projection">
     <link rel="stylesheet" href="/static/css/bootstrap-responsive.min.css" media="screen, projection">
     <link rel="stylesheet" href="/static/css/fancypants.css" media="screen, projection">
+
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+
 
     <script src="/static/js/modernizr-2.5.3.js"></script>
     <script src="/static/js/jquery-1.7.1.min.js"></script>
@@ -14,12 +25,33 @@
   </head>
 
   <body>
-    <div class="header"></div>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">Grabber!</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li><a href="#hot">Hot!</a></li>
+              <li><a href="#deals">Best Deals</a></li>
+              <li><a href="#trends">Trends</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <div class="content">
-      <form>
-        <input type="text" value="yaozaaa!"/>
-      </form>
+    <div class="container">
+      <div class="grabber-search-box span5 offset3">
+        <form class="well form-search">
+          <input type="text" class="input-large search-query grabber-search" value="yaozaaa!">
+          <button type="submit" class="btn grabber-btn">Search</button>
+        </form>
+      </div>
     </div>
 
     <div class="footer"></div>

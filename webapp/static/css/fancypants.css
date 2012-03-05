@@ -1,39 +1,15 @@
 body {
     font-family: "Helvetica Neue", "Helvetica", "Calibri", "sans"
-    /* padding-top: 60px; */ /* 60px to make the container go all the way to the bottom of the topbar */
 }
 
-.header {
-    width: 100%;
-    height: 50px;
-    top: 0px;
-    position: fixed;
-    background: #e0e0e0;
-    color: #ffffff;
+.grabber-container {
+    margin-top: 45px; /* 60px to make the container go all the way to the bottom of the topbar */
 }
-
-.footer {
-    width: 100%;
-    height: 120px;
-    bottom: 0px;
-    position: fixed;
-    background: #e0e0e0;
-    color: #ffffff;
-}
-
-.content {
-    padding: 50px 5px 0px 5px;
-    color: #000000;
-}
-
-/* .container { */
-/*     width: 99%; */
-/* } */
 
 .grabber-search-box {
     z-index: 1000px;
     top: 300px;
-    position: absolute;
+    position: fixed;
 }
 
 .grabber-search {
@@ -49,4 +25,8 @@ body {
     border-bottom-left-radius: 0px 0px;
     border-top-right-radius: 14px 14px;
     border-bottom-right-radius: 14px 14px;
+}
+
+.tile {
+    display: inline;
 }

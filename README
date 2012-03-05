@@ -2,3 +2,36 @@ A bunch of simple webpage crawlers; to help us make some nifty stuff.
 
 - hackaway!
 
+
+
+
+
+These below are known issues; and need to be moved to an issue tracker.
+
+List of Websites to crawl from.
+===============================
+1. flipkart.com       : basic crawler  done.
+2. letsbuy.com        : tbd.
+3. infibeam.com       : tbd.
+4. homeshop18.com     : tbd.
+5. themobilestore.com :
+6. futurebazaar.com   :
+7. indiaplaza.in      : 
+8. saholic.com        :
+9. ibazaar.com        :
+10. taggle.com        :
+11. buytheprice       :
+12. adexmart.com      :  later. ajax-loading.
+13. landmark          :
+14. nbcindia          :
+15. pustak            :
+16. rediff            :
+17. tradus            :
+18. uread             :
+19. friendsofbooks    :
+20. crosword          :
+21. coralhub          :
+22. coinjoos          :
+23. cerramatter       :
+24. bookadda          :
+25. a1books           :

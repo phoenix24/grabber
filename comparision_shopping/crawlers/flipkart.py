@@ -71,5 +71,5 @@ def scrape_flipkart_mobiles(strtpage = 1, endpage = 3, nextpg = True):
 
     
 if __name__ == '__main__':
-    scrape_flipkart_mobiles(strtpage = 5, endpage = 6)
+    scrape_flipkart_mobiles(strtpage = 1, endpage = 6)
     

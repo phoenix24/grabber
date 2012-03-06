@@ -3,9 +3,9 @@
 {% block title %} Duh! Details {% endblock %}
 
 {%  block content %}
-    <div class="container">
-     
-      <div class="grabber-search-bar row">
+    <div class="grabber-container container">
+
+      <div class="grabber-search-bar row-fluid">
         <div class="span12">
           <form class="well form-search">
             <input type="text" class="input-large search-query grabber-search" value="yaozaaa!">
@@ -13,23 +13,63 @@
           </form>
         </div>
       </div>
+     
+      <div class="product-details row-fluid">
 
-      <div class="row-fluid">
-        <div class="span4"></div>
-        <div class="span8"></div>
-      </div>
+        <div class="span9">
+          <div class="row-fluid">
 
-      <div class="row">
-        {% for tile in tiles %}
-        <div class="tile">
-          <a href="/{{ tile }}">
-            <!-- <img src=""/> -->
-            <img src="http://placehold.it/80x100" alt=""/>
-          </a>
+            <div class="prod-info span4">
+              <table class="table table-striped table-bordered table-condensed">
+                <thead>
+                  <tr>
+                    <th>Key</th> <th>Value</th>
+                  </tr>
+                </thead>
+                
+                <tbody>
+                  {% for tile in tiles %}
+                  <tr> <td>item #{{ tile }}</td> <td>value-{{ tile }}</td> </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+            
+            <div class="prod-image span4">
+              <a href="#"><img src="http://placehold.it/300x400" alt=""></a>
+            </div>
+          </div>
+
+          <div class="prod-info span8">
+            <table class="table table-striped table-bordered table-condensed">
+              <thead>
+                <tr>
+                  <th>Key</th> <th>Value</th>
+                </tr>
+              </thead>
+              
+              <tbody>
+                {% for tile in tiles %}
+                <tr> <td>item #{{ tile }}</td> <td>value-{{ tile }}</td> </tr>
+                  {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          
         </div>
-        {% endfor %}
+        
+        <!-- related items -->
+        <div class="related-items span2">
+          {% for tile in tiles %}
+          <div class="tile">
+            <a href="/{{ tile }}">
+              <img src="http://placehold.it/80x100" alt=""/>
+            </a>
+          </div>
+          {% endfor %}
+        </div>
       </div>
-
+      
     </div>
 
 {% endblock %}

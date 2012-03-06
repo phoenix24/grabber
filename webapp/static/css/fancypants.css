@@ -2,41 +2,6 @@ body {
     font-family: "Helvetica Neue", "Helvetica", "Calibri", "sans"
 }
 
-.grabber-container {
-    margin-top: 45px; /* 60px to make the container go all the way to the bottom of the topbar */
-}
-
-.grabber-search-box {
-    top: 300px;
-    z-index: 1000px;
-    position: fixed;
-}
-
-.grabber-search-bar {
-    top: 50px;
-    z-index: 1000px;
-    position: fixed;
-}
-
-.grabber-search {
-    width: 300px;
-    margin-right: -5px;
-    border-top-right-radius: 0px 0px;
-    border-bottom-right-radius: 0px 0px;
-}
-
-.grabber-btn {
-    width: 100px;
-    border-top-left-radius: 0px 0px;
-    border-bottom-left-radius: 0px 0px;
-    border-top-right-radius: 14px 14px;
-    border-bottom-right-radius: 14px 14px;
-}
-
-.tile {
-    display: inline;
-}
-
 ::-webkit-scrollbar{
     width:0.8em;
     height:0.8em;
@@ -61,3 +26,45 @@ body {
 ::-webkit-scrollbar-thumb:active{
     background-color:#888;
 }
+
+.grabber-container {
+    margin-top: 45px;
+}
+
+.grabber-search-box {
+    top: 300px;
+    z-index: 1000px;
+    position: fixed;
+}
+
+.grabber-search-bar {
+    margin: 5px;
+}
+
+.grabber-search {
+    width: 300px;
+    margin-right: -5px;
+    border-top-right-radius: 0px 0px;
+    border-bottom-right-radius: 0px 0px;
+}
+
+.grabber-btn {
+    width: 100px;
+    border-top-left-radius: 0px 0px;
+    border-bottom-left-radius: 0px 0px;
+    border-top-right-radius: 14px 14px;
+    border-bottom-right-radius: 14px 14px;
+}
+
+.tile {
+    display: inline;
+}
+
+.product-details {
+    margin-top: 10px;
+}
+
+.product-image, .product-info {
+    
+}
+

@@ -56,20 +56,3 @@ class FlipkartInventory(Crawler):
                 pass
 
 
-def scrape_flipkart_mobiles(strtpage = 1, endpage = 3, nextpg = True):
-
-    for page in range(strtpage, endpage):
-        url_to_fetch = "http://flipkart.com/mobiles/all/%s?layout=list" % page
-        print "fetching ", url_to_fetch
-        
-        fki = FlipkartInventory('', url_to_fetch)
-        fki.list_inventory()
-
-#        pagesp = soup(content)
-#        nextpg = pagesp.fetch('a', 'nav_bar_next_prev')[0].next.strip()       
-#        if not nextpg  == 'Next Page':            break
-
-    
-if __name__ == '__main__':
-    scrape_flipkart_mobiles(strtpage = 1, endpage = 6)
-    

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %} Go Grrraber! {% endblock %}
+
+{%  block content %}
+    <div class="grabber-container container">
+     
+      <div class="grabber-search-box row">
+        <div class="span5 offset3">
+          <form class="well form-search">
+            <input type="text" class="input-large search-query grabber-search" value="yaozaaa!">
+            <button type="submit" class="btn grabber-btn">Search</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="row">
+        {% for tile in tiles %}
+        <div class="tile">
+          <a href="/{{ tile }}">
+            <!-- <img src=""/> -->
+            <img src="http://placehold.it/80x100" alt=""/>
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+
+    </div>
+
+{% endblock %}

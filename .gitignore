@@ -9,3 +9,5 @@
 dev.db
 *.bak
 *gz
+*.cache
+*#*.py*

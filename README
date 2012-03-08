@@ -3,10 +3,21 @@ A bunch of simple webpage crawlers; to help us make some nifty stuff.
 - hackaway!
 
 
-
+  
 
 
 These below are known issues; and need to be moved to an issue tracker.
+
+
+TODOs
+===============================
+- seperate parser from crawler.
+- timestamp and save the crawled webpages;
+
+- multithread the crawler.
+- multithread the parser.
+
+
 
 List of Websites to crawl from.
 ===============================
@@ -14,14 +25,14 @@ List of Websites to crawl from.
 2. letsbuy.com        : tbd.
 3. infibeam.com       : tbd.
 4. homeshop18.com     : tbd.
-5. themobilestore.com :
+5. themobilestore.com : tbd.
 6. futurebazaar.com   :
 7. indiaplaza.in      : 
-8. saholic.com        :
+8. saholic.com        : tbd.
 9. ibazaar.com        :
 10. taggle.com        :
 11. buytheprice       :
-12. adexmart.com      :  later. ajax-loading.
+12. adexmart.com      : later. ajax-loading.
 13. landmark          :
 14. nbcindia          :
 15. pustak            :

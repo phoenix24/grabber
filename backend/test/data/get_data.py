@@ -44,10 +44,12 @@ def fetch_tours_test_pages(handle, tstamp):
 if __name__ == '__main__':
     handle = Http(".cache")        
 
+    print
     print "preparing tours-test-data-set : ", datetime.now().strftime("%Y%m%d_%H%M%S") 
     fetch_tours_test_pages(handle,
                            datetime.now().strftime("%Y%m%d_%H%M%S"))
-    
+
+    print
     print "preparing inventory-test-data-set : ", datetime.now().strftime("%Y%m%d_%H%M%S")
     fetch_inventory_test_pages(handle,
                                datetime.now().strftime("%Y%m%d_%H%M%S"))

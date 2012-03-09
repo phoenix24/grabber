@@ -3,47 +3,53 @@
 unit-tests for the parsers.saholic module.
 """
 import unittest
-from parser.saholic import SaholicInventory as si
+from parser.inventory.saholic import SaholicInventory
 
 class TestSaholicInventory(unittest.TestCase):
     
     def setUp(self):
-        file_data = file("test_albums.json").read()
-        self.file_data = json.loads(file_data)
-        self.test_data = json.loads(file_data)
+        self.test_data = file("test/data/inventory/test_20120309_144841_saholic.html", "r").read()
 
-        # get a db hanadle.
-        self.ml = MusicLibrary("MusicLibraryTest", "localhost")
-
-        #insert test data-into-db.
-        self.ml.db.tracks.insert(self.test_data["tracks"])
-        self.ml.db.charts.insert(self.test_data["charts"])
-        self.ml.db.artists.insert(self.test_data["artists"])
-        self.ml.db.playlists.insert(self.test_data["playlists"])
+    def tearDown(self):
+        self.test_data = None
+        
+        
+    def test_get_items(self):
+        si = SaholicInventory(self.test_data)
+        self.assertEquals(1, len(si.get_items()))
 
 
-    def unmarshall(self, items):
-        result = []
-        for item in items:
-            del item['_id']
-            result.append(item)
-        return result
+    def test_get_item_price(self):
+        si = SaholicInventory(self.test_data)
+        actual = si.get_item_price(si.get_items()[0])
+
+        expected = '949'
+        self.assertEquals(expected, actual)
+        
+        
+    def test_get_item_name(self):
+        si = SaholicInventory(self.test_data)
+        actual = si.get_item_name(si.get_items()[0])
+
+        expected = 'Alcatel  OT-230D'
+        self.assertEquals(expected, actual)
 
     
-    def tearDown(self):
-        self.ml.db.tracks.remove()
-        self.ml.db.charts.remove()
-        self.ml.db.artists.remove()
-        self.ml.db.playlists.remove()
-        
-        
-    def test_top_charts(self):        
-        expected = self.file_data["charts"]
-        actual = self.unmarshall(self.ml.top_charts)
-        
-        self.assertEquals(expected, actual)
-        self.assertEquals(len(expected), len(actual))
+    def test_list_inventory(self):
+        si = SaholicInventory(self.test_data)
+        actual = si.get_inventory(si.get_items())
 
+        expected = [[u'Alcatel  OT-230D', None, None, None, None, u'949', None]]
+        self.assertEquals(expected, actual)
+
+    
+    def test_get_item_delivery_days(self):
+        si = SaholicInventory(self.test_data)
+        actual = si.get_item_delivery_days(si.get_items()[0])
+
+        expected = None
+        self.assertEquals(expected, actual)
+        
 
 if '__main__' == __name__:
     unittest.main()

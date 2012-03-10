@@ -1,0 +1,2648 @@
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+
+<!-- new3.viaworld.in -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="robots" content="follow, index, all" />
+<meta name="distribution" content="Global" />
+<meta name="google-site-verification" content="0Ww1kcbzvPMInJD8m-US6xMBhbMAOuVP-OHsKl_5I5A" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+<link rel="icon" href="/static/favicon.png" type="image/x-icon">
+<link rel="shortcut icon" href="/static/favicon.png" type="image/x-icon">
+
+<!--[if IE 6]>
+<script type="text/javascript">try { document.execCommand('BackgroundImageCache', false, true); } catch(e) {}</script>
+<![endif]-->
+
+<link type="text/css" rel="stylesheet" href="/static/css/viacom/via_b2c-v100320123.css">
+<!--[if IE]>
+<link type="text/css" rel="stylesheet" href="/static/css/viacom/iestyles-v05022012.css">
+<![endif]-->
+<script type="text/javascript" src="/static/js/jquery-yui-min-v1.4.21.1.91.0.1.js"></script><script type="text/javascript" src="/static/js/utils/utils-v01032012.js"></script>
+<script type="text/javascript" src="/static/js/utils/fromToCalendar.js?v=27022008"></script>
+<script type="text/javascript">
+SERVER_VARS = {currentDate: new Date(2012, 2, 10),
+	_DOCTYPE: ''};
+</script>
+
+<script type="text/javascript">
+var $jQ = jQuery.noConflict();
+var _gaq = _gaq || [];
+_gaq.push(['PT._setAccount', 'UA-19455241-1'],['PT._setDomainName', 'via.com'],['PT._trackPageview', document.location.pathname+'/psrc'],['PT._trackPageLoadTime']);
+
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+})();
+</script>
+
+
+
+<script type="text/javascript" src="/static/js/prototype.js"></script>
+<script type="text/javascript">
+var selectedTab = "tab1";
+var oldImage="hotdeals";
+var excities = "<option value='-1'>Select</option>";
+function init(){
+	if(document.getElementById('holDestination')){
+		document.getElementById('holDestination').value = 'shimla';
+	}
+    
+                if(excities.indexOf('Shimla') == -1){
+                    excities+=("<option  value='131'>"+'Shimla'+"</option>");
+                }
+
+                
+                if(excities.indexOf('Shimla') == -1){
+                    excities+=("<option  value='131'>"+'Shimla'+"</option>");
+                }
+
+                
+                if(excities.indexOf('Delhi') == -1){
+                    excities+=("<option  value='297'>"+'Delhi'+"</option>");
+                }
+
+                
+                if(excities.indexOf('Delhi') == -1){
+                    excities+=("<option  value='297'>"+'Delhi'+"</option>");
+                }
+
+                
+                if(excities.indexOf('Delhi') == -1){
+                    excities+=("<option  value='297'>"+'Delhi'+"</option>");
+                }
+
+                
+                if(excities.indexOf('Delhi') == -1){
+                    excities+=("<option  value='297'>"+'Delhi'+"</option>");
+                }
+
+                
+                if(excities.indexOf('Delhi') == -1){
+                    excities+=("<option  value='297'>"+'Delhi'+"</option>");
+                }
+
+                
+    $jQ('#excityFilter').empty();
+    $jQ('#excityFilter').html(excities);
+}
+
+function trim(str){
+    return str.replace(/^\s*/, "").replace(/\s*$/, "");
+}
+
+function filterExCity(){
+    var count = 0;
+    var excityVal = document.getElementById("excityFilter").value;
+    
+    var pkgExCityDiv = document.getElementById("pkg0_details");
+    var pkgExCityVal = pkgExCityDiv.innerHTML;
+    var pkgExCities = pkgExCityVal.split(",");
+    for(var j=0;j<pkgExCities.length;j++){
+        if(pkgExCities[j]!=""){
+            if(isValidExCity(excityVal,pkgExCities[j])){
+                $jQ('#pkg'+0).css('display','block').parent('td').css({'padding':'10px 12px  5px 12px'});
+                count++;
+                break;
+            }else
+            {
+               
+                $jQ('#pkg'+0).css('display','none').parent('td').css({'padding':'0px'});
+            }
+        }
+    }
+    $jQ("#pkgCount").html(count + ' Packages Found');   
+    
+    var pkgExCityDiv = document.getElementById("pkg1_details");
+    var pkgExCityVal = pkgExCityDiv.innerHTML;
+    var pkgExCities = pkgExCityVal.split(",");
+    for(var j=0;j<pkgExCities.length;j++){
+        if(pkgExCities[j]!=""){
+            if(isValidExCity(excityVal,pkgExCities[j])){
+                $jQ('#pkg'+1).css('display','block').parent('td').css({'padding':'10px 12px  5px 12px'});
+                count++;
+                break;
+            }else
+            {
+               
+                $jQ('#pkg'+1).css('display','none').parent('td').css({'padding':'0px'});
+            }
+        }
+    }
+    $jQ("#pkgCount").html(count + ' Packages Found');   
+    
+    var pkgExCityDiv = document.getElementById("pkg2_details");
+    var pkgExCityVal = pkgExCityDiv.innerHTML;
+    var pkgExCities = pkgExCityVal.split(",");
+    for(var j=0;j<pkgExCities.length;j++){
+        if(pkgExCities[j]!=""){
+            if(isValidExCity(excityVal,pkgExCities[j])){
+                $jQ('#pkg'+2).css('display','block').parent('td').css({'padding':'10px 12px  5px 12px'});
+                count++;
+                break;
+            }else
+            {
+               
+                $jQ('#pkg'+2).css('display','none').parent('td').css({'padding':'0px'});
+            }
+        }
+    }
+    $jQ("#pkgCount").html(count + ' Packages Found');   
+    
+    var pkgExCityDiv = document.getElementById("pkg3_details");
+    var pkgExCityVal = pkgExCityDiv.innerHTML;
+    var pkgExCities = pkgExCityVal.split(",");
+    for(var j=0;j<pkgExCities.length;j++){
+        if(pkgExCities[j]!=""){
+            if(isValidExCity(excityVal,pkgExCities[j])){
+                $jQ('#pkg'+3).css('display','block').parent('td').css({'padding':'10px 12px  5px 12px'});
+                count++;
+                break;
+            }else
+            {
+               
+                $jQ('#pkg'+3).css('display','none').parent('td').css({'padding':'0px'});
+            }
+        }
+    }
+    $jQ("#pkgCount").html(count + ' Packages Found');   
+    
+    var pkgExCityDiv = document.getElementById("pkg4_details");
+    var pkgExCityVal = pkgExCityDiv.innerHTML;
+    var pkgExCities = pkgExCityVal.split(",");
+    for(var j=0;j<pkgExCities.length;j++){
+        if(pkgExCities[j]!=""){
+            if(isValidExCity(excityVal,pkgExCities[j])){
+                $jQ('#pkg'+4).css('display','block').parent('td').css({'padding':'10px 12px  5px 12px'});
+                count++;
+                break;
+            }else
+            {
+               
+                $jQ('#pkg'+4).css('display','none').parent('td').css({'padding':'0px'});
+            }
+        }
+    }
+    $jQ("#pkgCount").html(count + ' Packages Found');   
+    
+    var pkgExCityDiv = document.getElementById("pkg5_details");
+    var pkgExCityVal = pkgExCityDiv.innerHTML;
+    var pkgExCities = pkgExCityVal.split(",");
+    for(var j=0;j<pkgExCities.length;j++){
+        if(pkgExCities[j]!=""){
+            if(isValidExCity(excityVal,pkgExCities[j])){
+                $jQ('#pkg'+5).css('display','block').parent('td').css({'padding':'10px 12px  5px 12px'});
+                count++;
+                break;
+            }else
+            {
+               
+                $jQ('#pkg'+5).css('display','none').parent('td').css({'padding':'0px'});
+            }
+        }
+    }
+    $jQ("#pkgCount").html(count + ' Packages Found');   
+    
+    var pkgExCityDiv = document.getElementById("pkg6_details");
+    var pkgExCityVal = pkgExCityDiv.innerHTML;
+    var pkgExCities = pkgExCityVal.split(",");
+    for(var j=0;j<pkgExCities.length;j++){
+        if(pkgExCities[j]!=""){
+            if(isValidExCity(excityVal,pkgExCities[j])){
+                $jQ('#pkg'+6).css('display','block').parent('td').css({'padding':'10px 12px  5px 12px'});
+                count++;
+                break;
+            }else
+            {
+               
+                $jQ('#pkg'+6).css('display','none').parent('td').css({'padding':'0px'});
+            }
+        }
+    }
+    $jQ("#pkgCount").html(count + ' Packages Found');   
+    
+    if(count==0){
+        alert('No Packages Found');
+        document.getElementById("searchbudget").value = -1;
+    }
+}
+
+function filterBudget(){
+
+    var count = 0;
+    var budgetVal = document.getElementById("searchbudget").value;
+    
+    
+    var pkgBudgetDiv = document.getElementById("pkg0_budget");
+    var pkgBudgetVal = pkgBudgetDiv.innerHTML;
+
+    if(isValidPrice(budgetVal,pkgBudgetVal)){
+
+        $jQ('#pkg'+0).css('display','block').parent('td').css({'padding':'10px 12px  5px 12px'});
+        count++;
+        $jQ("#pkgCount").html(count + ' Packages Found');
+    }
+    else{
+        $jQ('#pkg'+0).css('display','none').parent('td').css({'padding':'0px'});
+
+    }
+    
+    
+    var pkgBudgetDiv = document.getElementById("pkg1_budget");
+    var pkgBudgetVal = pkgBudgetDiv.innerHTML;
+
+    if(isValidPrice(budgetVal,pkgBudgetVal)){
+
+        $jQ('#pkg'+1).css('display','block').parent('td').css({'padding':'10px 12px  5px 12px'});
+        count++;
+        $jQ("#pkgCount").html(count + ' Packages Found');
+    }
+    else{
+        $jQ('#pkg'+1).css('display','none').parent('td').css({'padding':'0px'});
+
+    }
+    
+    
+    var pkgBudgetDiv = document.getElementById("pkg2_budget");
+    var pkgBudgetVal = pkgBudgetDiv.innerHTML;
+
+    if(isValidPrice(budgetVal,pkgBudgetVal)){
+
+        $jQ('#pkg'+2).css('display','block').parent('td').css({'padding':'10px 12px  5px 12px'});
+        count++;
+        $jQ("#pkgCount").html(count + ' Packages Found');
+    }
+    else{
+        $jQ('#pkg'+2).css('display','none').parent('td').css({'padding':'0px'});
+
+    }
+    
+    
+    var pkgBudgetDiv = document.getElementById("pkg3_budget");
+    var pkgBudgetVal = pkgBudgetDiv.innerHTML;
+
+    if(isValidPrice(budgetVal,pkgBudgetVal)){
+
+        $jQ('#pkg'+3).css('display','block').parent('td').css({'padding':'10px 12px  5px 12px'});
+        count++;
+        $jQ("#pkgCount").html(count + ' Packages Found');
+    }
+    else{
+        $jQ('#pkg'+3).css('display','none').parent('td').css({'padding':'0px'});
+
+    }
+    
+    
+    var pkgBudgetDiv = document.getElementById("pkg4_budget");
+    var pkgBudgetVal = pkgBudgetDiv.innerHTML;
+
+    if(isValidPrice(budgetVal,pkgBudgetVal)){
+
+        $jQ('#pkg'+4).css('display','block').parent('td').css({'padding':'10px 12px  5px 12px'});
+        count++;
+        $jQ("#pkgCount").html(count + ' Packages Found');
+    }
+    else{
+        $jQ('#pkg'+4).css('display','none').parent('td').css({'padding':'0px'});
+
+    }
+    
+    
+    var pkgBudgetDiv = document.getElementById("pkg5_budget");
+    var pkgBudgetVal = pkgBudgetDiv.innerHTML;
+
+    if(isValidPrice(budgetVal,pkgBudgetVal)){
+
+        $jQ('#pkg'+5).css('display','block').parent('td').css({'padding':'10px 12px  5px 12px'});
+        count++;
+        $jQ("#pkgCount").html(count + ' Packages Found');
+    }
+    else{
+        $jQ('#pkg'+5).css('display','none').parent('td').css({'padding':'0px'});
+
+    }
+    
+    
+    var pkgBudgetDiv = document.getElementById("pkg6_budget");
+    var pkgBudgetVal = pkgBudgetDiv.innerHTML;
+
+    if(isValidPrice(budgetVal,pkgBudgetVal)){
+
+        $jQ('#pkg'+6).css('display','block').parent('td').css({'padding':'10px 12px  5px 12px'});
+        count++;
+        $jQ("#pkgCount").html(count + ' Packages Found');
+    }
+    else{
+        $jQ('#pkg'+6).css('display','none').parent('td').css({'padding':'0px'});
+
+    }
+    
+    if(count==0){
+        alert('No Packages Found');
+        document.getElementById("searchbudget").value = -1;
+        filterExCity();
+    }
+    document.getElementById("searchDuration").value = -1;
+}
+
+function filterDuration(){
+    var count = 0;
+    var durationVal = document.getElementById("searchDuration").value;
+    
+
+        if($jQ('#pkg'+0).css('display') == 'block'){
+            
+
+            if(isDurationValid(durationVal,3)){
+                $jQ('#pkg'+0).css('display','block').parent('td').css({'padding':'10px 12px  5px 12px'});
+                count++;
+                $jQ("#pkgCount").html(count + ' Packages Found');
+            }
+            else{
+                $jQ('#pkg'+0).css('display','none').parent('td').css({'padding':'0px'});
+            }
+        }
+        
+
+        if($jQ('#pkg'+1).css('display') == 'block'){
+            
+
+            if(isDurationValid(durationVal,3)){
+                $jQ('#pkg'+1).css('display','block').parent('td').css({'padding':'10px 12px  5px 12px'});
+                count++;
+                $jQ("#pkgCount").html(count + ' Packages Found');
+            }
+            else{
+                $jQ('#pkg'+1).css('display','none').parent('td').css({'padding':'0px'});
+            }
+        }
+        
+
+        if($jQ('#pkg'+2).css('display') == 'block'){
+            
+
+            if(isDurationValid(durationVal,6)){
+                $jQ('#pkg'+2).css('display','block').parent('td').css({'padding':'10px 12px  5px 12px'});
+                count++;
+                $jQ("#pkgCount").html(count + ' Packages Found');
+            }
+            else{
+                $jQ('#pkg'+2).css('display','none').parent('td').css({'padding':'0px'});
+            }
+        }
+        
+
+        if($jQ('#pkg'+3).css('display') == 'block'){
+            
+
+            if(isDurationValid(durationVal,7)){
+                $jQ('#pkg'+3).css('display','block').parent('td').css({'padding':'10px 12px  5px 12px'});
+                count++;
+                $jQ("#pkgCount").html(count + ' Packages Found');
+            }
+            else{
+                $jQ('#pkg'+3).css('display','none').parent('td').css({'padding':'0px'});
+            }
+        }
+        
+
+        if($jQ('#pkg'+4).css('display') == 'block'){
+            
+
+            if(isDurationValid(durationVal,6)){
+                $jQ('#pkg'+4).css('display','block').parent('td').css({'padding':'10px 12px  5px 12px'});
+                count++;
+                $jQ("#pkgCount").html(count + ' Packages Found');
+            }
+            else{
+                $jQ('#pkg'+4).css('display','none').parent('td').css({'padding':'0px'});
+            }
+        }
+        
+
+        if($jQ('#pkg'+5).css('display') == 'block'){
+            
+
+            if(isDurationValid(durationVal,7)){
+                $jQ('#pkg'+5).css('display','block').parent('td').css({'padding':'10px 12px  5px 12px'});
+                count++;
+                $jQ("#pkgCount").html(count + ' Packages Found');
+            }
+            else{
+                $jQ('#pkg'+5).css('display','none').parent('td').css({'padding':'0px'});
+            }
+        }
+        
+
+        if($jQ('#pkg'+6).css('display') == 'block'){
+            
+
+            if(isDurationValid(durationVal,7)){
+                $jQ('#pkg'+6).css('display','block').parent('td').css({'padding':'10px 12px  5px 12px'});
+                count++;
+                $jQ("#pkgCount").html(count + ' Packages Found');
+            }
+            else{
+                $jQ('#pkg'+6).css('display','none').parent('td').css({'padding':'0px'});
+            }
+        }
+        
+        if(count==0){
+            alert('No Packages Found');
+            filterBudget();
+        }
+}
+
+function isDurationValid(duration,pkgDuration){
+    var valid = false;
+    if(duration == 0){
+        if(pkgDuration <= 3){
+            valid = true;
+        }
+    }else if(duration == 1){
+        if(pkgDuration >=4 && pkgDuration<8){
+            valid = true;
+        }
+    }else if(duration == 2){
+        if(pkgDuration>=8){
+            valid = true;
+        }
+    }else if(duration == -1){
+        valid = true;
+    }
+    return valid
+}
+
+function isValidPrice(price,pkgPrice){
+
+    var valid = false;
+
+    if(price == 0){
+        if(pkgPrice < 2999){
+            valid = true;
+        }
+    } else if(price == 1){
+        if(pkgPrice>=2999 && pkgPrice<=4999){
+            valid = true;
+        }
+    }else if(price == 2){
+        if(pkgPrice>4999 && pkgPrice<=9999){
+            valid = true;
+        }
+    }else if(price == 3){
+        if(pkgPrice>9999 && pkgPrice<=14999){
+            valid = true;
+        }
+    }else if(price == 4){
+        if(pkgPrice>14999 && pkgPrice<=24999){
+            valid = true;
+        }
+    }else if(price == 5){
+        if(pkgPrice>=25000){
+            valid = true;
+        }
+    }else if(price == -1){
+        valid = true;
+    }
+
+    return valid;
+}
+
+function isValidExCity(excity,pkgExCity){
+    if(excity==-1){
+        return true;
+    }else if(excity.indexOf(pkgExCity)!=-1){
+        return true;
+    }else
+    {
+        return false;   
+    }
+
+
+}			
+var curDate = new Date;
+curDate = curDate.getDate()+"/"+(curDate.getMonth()+1)+"/"+curDate.getFullYear();
+</script>
+<style type="text/css">
+.searchTypeDiv{
+	float:left;color:#000;font-size:12px;font-weight:bold;margin-right:30px;font-family: arial;width: 200px;
+}
+#pkgForm select,input{border:1px solid #D0D0D0;padding:1px;-moz-border-radius:5px;}
+</style>
+<!--[if lte IE 6]>
+<style type="text/css">
+.expand{
+	background:transparent url('/static/img/marketplace/expand.jpg') no-repeat scroll 0 0;
+	display:block;
+	height:12px;
+	position:absolute;
+	width:13px;
+	top:8px;
+	left:80%;
+}
+.modifyFormCont{
+	
+}
+.modifyFormHead{
+	
+	font-size:12px!important;
+	width:125px!important;
+	right:125px!important;
+}
+.modifyFormClose{
+	width:70px!important;
+}
+.divoverlay{
+	position:absolute!important;
+	top:0px!important;
+	left:0px !important;
+	height:600px!important;
+	width:100%!important;
+	background:#000!important;
+	z-index:9999px;
+	
+}	
+</style>	    	
+<![endif]-->
+<title>Via.com | Holidays | Results</title>
+<link href="/static/css/marketplace_styles.css" type="text/css" rel="stylesheet" >
+</head>
+<body onLoad="init()">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="doc" class="yui-skin-via">
+
+	<div style="display:none">
+		
+
+<div class="secondaryNavigation topSecondaryNavigation" style="padding-top: 2px;">
+<ul style="margin: 0px;padding: 0px">
+
+
+</ul>
+</div>
+<div style="clear: both;"></div>
+<style type="text/css">
+.inActiveTab{
+	position: relative;
+}
+.tabgap{
+	margin-left: -4px;
+}
+.topSecondaryNavigation li a {
+	text-decoration: none;
+	color:#ccc;
+	font-size:12px;
+	font-weight:bold
+}
+.topSecondaryNavigation li.selected a {
+	text-decoration: none;
+	color:#fff;
+	font-size:12px;
+	font-weight:bold
+}
+.topSecondaryNavigation li{
+	float: left;
+	position: relative;
+	top:6px;
+	margin-right:10px;
+}
+</style>
+<div style="display: none;">
+<img src="/static/img/viacom/tab/travel2.png">
+<img src="/static/img/viacom/tab/deals2.png">
+</div>
+	</div>
+	<div id='longHeader' >
+		<div id="hd" class="u_block" style="height:80px">
+		<div class="logo" style="float:left;"><img src="/static/img/via_logos/logo_119x80.gif" alt="Via"></div>
+		
+		
+		<h1 class="logo hideFromCustomer" id='vialogo' style="background-image:url('/static/img/via_logos/viadotcom_logo.gif');height:60px;top:16px;width:180px" title="via.com" alt='Via.com'>
+		
+		<a href="http://www.via.com/bdo">Via</a></h1>
+		<div class="userInfo hideFromCustomer" id="headerTitleMsgDiv" style="top:0px !important">
+			
+				<div style="float: left;display:none;margin-left: 10px; margin-right: 10px; margin-top: 2px; font-size:15px;padding: 5px; color:#fff; font-family: arial;">
+					<b>Our lines for number 39414141 are down :(<br>Please email us at care@via.com for any help.</b>
+			 	</div>
+		 	
+			<div style="float:right;margin-top:0px;width:400px;color:#2f2f2f">
+				
+
+
+
+
+
+
+
+
+<style type="text/css">
+#headerTitleMsgDiv{color:#000;}
+#headerTitleMsgDiv a {color:#000;}
+.phoneDiv {position:absolute; top:30px; font-family:arial; right:10px; width:300px; background:#E9142F; color:#fff; font-size:12px; padding:10px; z-index:3; font-weight:bold;}
+</style>
+<div id="phoneDiv" class="phoneDiv" onmouseover="$jQ('#phoneDiv').show();" onmouseout="$jQ('#phoneDiv').hide();" style="display:none">
+<a href="http://www.via.com/go/world/contact" style="text-decoration:none;display:block;color:#fff">Call us anytime on 39 41 41 41 or email us at care@via.com
+<br/><br/>Local call from Delhi, Bangalore, Mumbai and Hyderabad. For rest of the cities please dial (080) 39 41 41 41.</a>
+</div>
+
+<table style="width:100%">
+	<tr>
+		<td style="border:none;font:bold 12px arial;padding-right: 10px;text-align: right;width:90px;" valign="top">			 
+		</td>
+		<td valign="top" style="border:none;padding-left: 10px;" align="right">
+			<div onmouseout="$jQ('#phoneDiv').hide();" onmouseover="$jQ('#phoneDiv').show();" style="font: bold 8pt arial;">Need Help? Call: 39 41 41 41</div>
+		</td>
+		</tr>
+</table>
+<div style="font-weight:bold;font-family:arial;font-size:17px;display: none;">Call us on :<a href="#" onmouseover="$jQ('#phoneDiv').show();" onmouseout="$jQ('#phoneDiv').hide();" style="text-decoration:none"><span >(080)</span><font size="4" ><b> 39 41 41 41</b></font></a></div>
+
+
+
+
+
+			</div>
+			<div style="clear:both;"></div>
+		</div>
+		<div class="headerMessage" style="">
+			
+		</div>
+		<div id="pdNav" class="productNavigation hnav u_block" style="top:38px;width:100%;">
+			<ul class="jd_menu"><li class="u_block first "><a href="http://www.via.com/bdo"  alt="Home" class="nln"><span class="inner">Home</span></a></li>
+<li class="u_block "><a href="http://www.via.com/flight-tickets"  alt="Flights" class="nln"><span class="inner">Flights</span></a><div class="rollover"><div class="innRO col2"><div class="mSct"><h5><a href="http://www.via.com/flight-tickets">Domestic Flights</a></h5><h5 class="mg"><a href="http://www.via.com/mera-trip-mera-price">Fly @ Mera Price</a></h5><h5 class="mg"><a href="http://www.via.com/bdo?action1=BOOK_AIRCARD">Via Air Coupons</a></h5><h5 class="mg"><a href="http://www.via.com/bdo?action1=LAST_MINUTE">Last Minute Deals</a></h5></div><div class="mSct last"><h5><a href="http://offers.via.com/domestic">Current Offers</a></h5><div class="mSbd"><a href="http://offers.via.com/buy-1-get-1-free">Buy 1 Get 1 Free</a><a href="http://offers.via.com/15percent-off-on-domestic-flights-use-VIAICICI-code">15% off on ICICI Card</a><a href="http://offers.via.com/15percent-off-on-domestic-flights-use-VIAHDFC-code">15% off on HFDC Card</a></div></div></div></div></li>
+<li class="u_block "><a href="http://www.via.com/international-flights"  alt="International Flights" class="nln"><span class="inner">International Flights</span></a><div class="rollover"><div class="innRO col2"><div class="mSct"><h5><a href="/international-flights">International Flights</a></h5><div class="mSbd"><a href="/international-flights">From India</a><a href="http://internationalflights.via.com">From USA</a><a href="http://internationalflights.via.com">From Canada</a><a href="http://internationalflights.via.com">From UK</a><a href="http://internationalflights.via.com">From Australia</a></div></div><div class="mSct last"><h5><a href="http://offers.via.com/domestic">Current Offers</a></h5><div class="mSbd"><a href="http://offers.via.com/international-discounts">Get upto Rs 2000 Off</a><a href="http://offers.via.com/10percent-off-on-international-flights-use-VIAICICI-code">Upto 10% off on ICICI Card</a><a href="http://offers.via.com/10percent-off-on-international-flights-use-VIAHDFC-code">Upto 10% off on HFDC Card</a></div></div></div></div></li>
+<li class="u_block "><a href="http://www.via.com/bus-tickets"  alt="Buses" class="nln"><span class="inner">Buses</span></a></li>
+<li class="u_block "><a href="http://www.via.com/rail-tickets"  alt="Rail" class="nln"><span class="inner">Rail</span></a></li>
+<li class="u_block "><a href="http://www.via.com/hotels"  alt="Hotels" class="nln"><span class="inner">Hotels</span></a><div class="rollover"><div class="innRO col2"><div class="mSct"><h5><a href="http://www.via.com/hotels">Domestic Hotels</a></h5><h5 class="mg"><a href="http://www.via.com/mera-trip-mera-price?select=hotel">Stay @ Your Price</a></h5><h5 class="mg"><a href="http://www.via.com/international-hotels">International Hotels</a></h5><h5 class="mg"><a href="http://www.hb-247.com/aff/via520/">International Budget Stay</a></h5></div><div class="mSct last"><h5><a href="http://offers.via.com/domestic">Offers on Domestic Hotels</a></h5><div class="mSbd"><a href="http://offers.via.com/15percent-discount-on-hotels-use-VIAICICI-code">15% off on ICICI Card</a><a href="http://offers.via.com/15percent-discount-on-hotels-use-VIAHDFC-code">15% off on HFDC Card</a></div></div></div></div></li>
+<li class="u_block selected "><a href="http://www.via.com/holidays"  alt="Holidays" class="nln"><span class="inner">Holidays</span></a></li>
+<li class="u_block "><a href="http://deals.via.com"  alt="Great Deals" class="nln"><span class="inner">Great Deals</span></a></li>
+<li class="u_block last"><a href="http://bustours.via.com"  alt="Via Bus Tours" class="nln"><span class="inner">Via Bus Tours</span></a></li>
+</ul>
+		</div>
+		<div class="secondaryNavigation u_block hideFromCustomer">
+			<ul><li class=" first act_login"><div><a href="/membership" ><span class="inner">Sign in</span></a></div></li>
+<li class=" act_login"><div><a href="http://www.viaworld.in/agent" ><span class="inner">Agents</span></a></div></li>
+<li class=""><div><a href="http://www.via.com/bdo?action1=CHECK_PNR" ><span class="inner">Print Ticket</span></a></div></li>
+</ul>
+		</div>				 
+		<div>
+			
+
+<style type="text/css">
+.invitefrndCnt{
+	    background: #FFFFFF;
+	    border: 1px solid #DDDDDD;
+	    left: 567px;
+	    padding: 10px 20px 35px 24px;
+	    position: absolute;
+	    top: 42px;
+}
+</style>
+<div class='invitefrndCnt' style="display: none;">
+<form class='myInviteForm' id="invite1" method="post">
+	<div style="float: right;cursor: pointer;" class='invitefrndCloseBtn'>
+		Close [ X ] 
+	</div>
+	<div style="clear: both;"></div>
+	<div style="font-size: 17px;font-weight: bold;padding: 5px 18px;background: #2B3656;color: #FFF;">Invite Your Friend</div><br />
+	<div style="padding-left:18px">
+		Your Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id='yrname' style="background:white" size="35"><br /><br />
+		Your Friends Name:&nbsp;&nbsp;&nbsp;<input type="text" id='frname' style="background:white" size="35"><br /><br />
+		Your Friends Email ID: <input type="text" id='email' style="background:white" size="35"><br /><br />
+		<center><span onclick='invite();' class='srchBtnhtl2' style="cursor: pointer;background: #2B3656;color: #FFF;font-size: 11px;font-weight: bold;padding: 6px 10px;">Invite</span></center>
+	</div>
+	</form>
+</div>
+<script>
+$jQ(function(){
+	$jQ('.frnd_invite').click(function(){
+		$jQ('.invitefrndCnt').show();
+	});
+	$jQ('.invitefrndCloseBtn').click(function(){
+		$jQ('.invitefrndCnt').hide();
+	});
+	
+});
+
+function invite(){
+	if(validateYRName('invite1','yrname') == true) {
+		if(validateFRName('invite1','frname') == true) {
+			var flag = validateEmail3('invite1','email');
+			var url = "http://www.via.com/bdo?action1=FRINVT";
+			var email = document.forms['invite1'].elements['email'].value;
+			var toName = document.forms['invite1'].elements['frname'].value;
+			var fromName = document.forms['invite1'].elements['yrname'].value;
+			if(flag == true) {
+				$jQ.ajax({
+					type : "POST",
+					url : url,
+					data : 'email='+email+'&toName='+toName+'&fromName='+fromName ,
+					success : function(data){
+						if(data == 'true') {
+							$jQ('.invitefrndCnt').hide();
+							alert("Invitation Sent successfully");
+						} else {
+							alert("Invitation not Sent: please send again");
+						}
+					}
+				}); 
+			}
+		}
+	}
+}
+
+function validateYRName(formid,name) {
+	var Name = document.forms[formid].elements[name].value;
+	if(Name == null || Name == "" || Name.length < 1) {
+		alert('Invalid Name');
+	      return false;
+	} else {
+		return true;
+	}
+	validateFRName('invite1','frname');
+}
+
+function validateFRName(formid,name) {
+	var Name = document.forms[formid].elements[name].value;
+	if(Name == null || Name == "" || Name.length < 1) {
+		alert('Invalid Friends Name');
+	      return false;
+	} else {
+		return true;
+	}
+	validateEmail3('invite1','email');
+}
+function validateEmail3(formid,email) {
+	   var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+	   var address = document.forms[formid].elements[email].value;
+	   if(reg.test(address) == false) {
+	      alert('Invalid Email Address');
+	      return false;
+	   } else {
+		   return true;
+	   }
+}
+</script>
+
+
+		</div>
+		
+		
+	  </div>
+  </div>
+
+<script type="text/javascript">
+
+SERVER_VARS._DOCTYPE = '';
+$jQ(document).ready(function() {
+	$jQ("#pdNav ul.jd_menu").jdMenu({mTraversal: '>div', disableLinks: false, container: "#doc"});
+	//setInterval('blinkText()',500);
+});
+
+function blinkText() {
+	if(document.getElementById('blinkText')){	
+ 		document.getElementById('blinkText').style.visibility = (document.getElementById('blinkText').style.visibility=='visible')?'hidden':'visible';
+ 	} 
+}
+</script>
+
+<div id="bd" class="u_block">
+
+<script type="text/javascript">
+$jQ(document).ready(function(){
+	$jQ("form").each(function(){		
+		$jQ("<input type='hidden' name='_trackflow' value='null' >").appendTo(this);
+	});	
+});
+</script>
+<style type="text/css">
+.newTab{
+	position: absolute;top:-60px;left:193px;
+}
+</style>
+
+
+
+
+
+
+<link rel="stylesheet" href="/static/js/jquery/jquery-ui-1.8.2.custom/css/flick/jquery-ui-1.8.2.custom.css" type="text/css" media="screen" />
+<script src="/static/js/jquery/jquery-ui-1.8.2.custom/js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script>
+<div id="mpBuyer">
+	<table width='100%'>
+		<tbody>
+			<tr>
+				<td style='padding:0;'>
+					<div id="messageDiv" style="display: none; font-weight: bold; text-align: center; color: red;"></div>
+					<div class="yui-g">
+						<div style="">
+							<table style="width:100%">
+								<tr>
+									<td style='padding:0;'>
+										<div style=''>
+											<div style='padding:0 0 0 10px;float:left;'>
+												<p style='margin-bottom:0;color:#454545;font-size: 18px;font-weight:bold;'>Search Results for <span style='text-transform:capitalize; '>shimla</span> </p>
+												
+												<p id="pkgCount" style='margin-bottom:0;color:#454545;font-size:13px;'>7 Packages found</p>
+														
+											</div>
+											<div style='float:right;'>
+												<img alt="Holidays Legend" src="/static/img/v1/holidays/key2.png">
+											</div>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td style='padding:0;'>
+										<div style='margin:10px 0px; display:none;'>
+											<div class='btn' style='background-color:#ED1C24;height:25px;'></div>
+										</div>
+										<div style='height:38px;background-color:#FFF;border:1px solid #ddd;margin-bottom:10px;margin-top:5px;'>
+											<div style='width:27%;border-right:1px solid #c1c1c1;height:75%;font-size:11.5px;padding:10px 20px 0;float:left;text-align: center;'>Filter by Ex-City 
+												<select style="width:150px;margin-left:10px;" id="excityFilter" name="excityFilter" onchange="filterExCity()">
+												</select>
+											</div>
+											<div style='width:27%;border-right:1px solid #c1c1c1;height:75%;font-size:11.5px;padding:10px 20px 0;float:left;text-align: center;'>Filter by Budget 
+												<select style="width:150px;margin-left:10px;" id="searchbudget" name="searchbudget" onchange="filterBudget()">
+													<option value="-1">All</option>
+													<option value="0"> <2000 </option>
+													<option value="1">2000 - 4999</option>
+													<option value="2">5000 - 9999</option>
+													<option value="3">10000 - 14999</option>
+													<option value="4">15000 - 24999</option>
+													<option value="5"> >25000 </option>
+												</select>
+											</div>
+											<div style='width:27%;height:75%;padding:10px 20px 0;float:left;font-size:11.5px;text-align: center;'>Filter by Duration 
+												<select id="searchDuration" name="searchDuration" style='width:150px;margin-left:10px;' onchange="filterDuration()">
+													<option value="-1">All</option>
+													<option value="0">Upto 3Nights/Days</option>
+													<option value="1">4-7 Nights/Days</option>
+													<option value="2">8+ Nights/Days</option>
+												</select>
+											</div>
+										</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td style='padding:0;'>
+					
+					<div style="padding: 9px 3px 2px 10px;width:98px;background-color:#DFDDD0;float:right;font-size:12px;font-weight:bold;color:#161616;cursor: pointer;display: none;" class="modSeaDiv" id='modSeaDivHead'> <span style='color:#a0a0a0!important;font-size:14px;'>+</span> Modify Search</div>
+				</td>
+			</tr>
+			<tr>
+				<td style='padding:0;'>
+					<div id="hotelSearchResults">
+						<table width='100%'>
+							<tr>
+								<td style='padding:0px;'>
+									<div style="width:100%;height:auto;">
+										<table width='100%'>
+										
+										
+											<tr>
+												<td style='padding: 0px;'>
+													
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+.sUlthd{
+	color: green;
+	font-size:20px;
+}
+.packName{
+	font-size:17px;
+	font-family:arial;
+	font-weight: bold;
+	color: #454545;
+	padding:10px 0 0 15px;
+}
+.packInc{
+	font-size:14px;
+	font-family:arial;
+	font-weight: bold;
+	color: #454545;
+	padding:0px 25px 5px 25px;
+}
+.sUl {
+	margin:0 10px 0 2em !important;
+}
+.sUl li{
+	list-style: disc outside none;
+	border-bottom: 1px solid #DDD;
+	padding: 5px;
+	color: #454545;
+	font-size:12px;
+}
+
+
+</style>
+<div id='pkg0'>
+	
+	<div style="width:100%;min-height:280px;background: #FFF;border:1px solid #ddd;margin-bottom: 10px;">
+		<table width="100%" height='100%'>
+			<tr>
+				<td colspan='3'><div class="packName">Willow Banks (Deluxe Room) - 6 Jan to 31 Mar 2012 3 Days / 2 Nights 
+				</div></td>
+			</tr>
+			<tr style="border-bottom:1px solid #C9CAC4;">
+				<td valign="top" style='padding: 10px 10px 0px 20px;'>
+					<div style="width:405px;border-right:1px solid #DDD;min-height: 170px;float: left;">
+					 	<div style="height:140px;">
+					 		<div style="float:left; width: 45%;">
+					 			<a href="http://www.via.com/bdo?action1=PSRC&pkgRadioBtn=0&page=detailed&prodId=9575&cityId=-1&holDestination=shimla&isFirst=true"><img src="http://images.via.com/static/img/codes/9575/thumb.jpg" width="175" height="135"></a>
+					 		</div>
+						 	<div style="float:left; width:50%;padding: 0px 5px;">
+								
+								<div style="color: #656565;font-size:12px;height:100px;">
+									<p style='line-height:15px;'>Renowned as the once summer capital of the British Raj, this beautiful hill station is surrounded by forests of pine and deodar and snow-clad peaks. S<p>
+									<a href="http://www.via.com/bdo?action1=PSRC&pkgRadioBtn=0&page=detailed&prodId=9575&cityId=-1&holDestination=shimla&isFirst=true" style='color:green;text-decoration: none;font-weight: bold;'>more &#187 </a>
+								</div>
+								<div style="margin-top:10px;height:30px;">
+									  
+								</div>
+					 		</div>
+					 	</div>				
+					</div>
+					<div style="clear: both;"></div>			
+				</td>
+				<td valign="top" style='padding:6px 0px 0px 0px;'>
+					<div style="width:290px;min-height:170px;float: left;">
+						<div class="packInc">Inclusions</div>
+						<ul class='sUl'>
+						<li>2 nights accommodation on twin sharing basis in Deluxe Room</li>
+						<li>Non-alcoholic welcome drink and cookies on arrival</li>
+						<li>Daily breakfast and lunch or dinner</li>
+						<li>10% discount on F&B other than package</li>
+						
+					 	</ul>
+					</div>
+				</td>
+				
+				<td valign="top" style='padding:6px 0px 0px 10px;'>
+					<div style="width:175px;min-height:170px;float: left;border-left:1px solid #DDD;padding-left:25px;">
+						<img src="/static/img/viacom/4star.gif" />
+						<p style="color:#656565;font-size:10px;margin-bottom:0;">starting from</p>
+					 	<p style="font-family: arial;font-weight: bold;font-size:20px;margin-bottom:0px;"><img alt="Rs." height='15' src="/static/img/v1/holidays/rupee.png">&nbsp;5,850</p>
+					 	<p style="margin-bottom:5px;"><span style="color:#656565;font-size:10px;">per person on twin sharing</span></p>
+					 	<p class='showIncentiveCont' style='display:none;'><span style='background-color:#FFF06E;color:#161616;font-size:11px;font-weight: bold;padding:2px 5px;'>Commission: Rs.520</span></p>
+					 	<!--<p style='color:#161616;font-weight:bold;font-size:14px;margin-bottom:0;'>3 Days / 2 Nights</p>-->
+					 	
+					 	
+					 	<p style="color:#656565;font-size:11px;margin-bottom:0;">From: Shimla</p>
+					 	<p style="color:#656565;font-size:11px;margin-bottom:0;">Validity: 06-Jan-12 to 31-Mar-12</p>
+					 	
+					 	
+					 	<p style="color:#656565;font-size:11px;margin-bottom:0;">Accomodation: <span style='text-transform: capitalize;'>Twin Share</span></p>
+					 	
+					 	<div style="display:none" id="pkg0_details">131,</div>
+					 	<div style="display:none" id="pkg0_budget">5850</div>
+					 	<div style="display:none" id="pkg0_duration">3</div> 
+					 </div>
+				</td>
+			</tr>
+			<tr>
+				<td style='padding:10px 0px 10px 20px;'>
+					<div>
+						<div style="float:left;font-family:arial;font-size:11px;font-weight:bold;display:none;">
+							<a style='margin-right:5px;color:#454545;'>More Photos</a>|<a style='margin-left:5px;color:#454545;'>Maps</a>
+						</div>
+					</div>
+				</td>
+				
+				<td style='padding:10px 20px 10px 0px;'colspan='2'>
+					<div style="float:right;" >
+					
+							<span style="display:none;"><img alt="View Details" src="/static/img/v1/holidays/sendEnquiry.png"></span>	
+					
+					</div>
+					<div style="float: right;padding-right:10px;" >
+						<span>
+							 <a href="http://www.via.com/bdo?action1=PSRC&pkgRadioBtn=0&page=detailed&prodId=9575&cityId=-1&holDestination=shimla&isFirst=true"><img alt="View Details" src="/static/img/v1/holidays/viewPackage.png"></a>	
+						</span>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+												</td>
+											</tr>
+										
+										
+											<tr>
+												<td style='padding: 0px;'>
+													
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+.sUlthd{
+	color: green;
+	font-size:20px;
+}
+.packName{
+	font-size:17px;
+	font-family:arial;
+	font-weight: bold;
+	color: #454545;
+	padding:10px 0 0 15px;
+}
+.packInc{
+	font-size:14px;
+	font-family:arial;
+	font-weight: bold;
+	color: #454545;
+	padding:0px 25px 5px 25px;
+}
+.sUl {
+	margin:0 10px 0 2em !important;
+}
+.sUl li{
+	list-style: disc outside none;
+	border-bottom: 1px solid #DDD;
+	padding: 5px;
+	color: #454545;
+	font-size:12px;
+}
+
+
+</style>
+<div id='pkg1'>
+	
+	<div style="width:100%;min-height:280px;background: #FFF;border:1px solid #ddd;margin-bottom: 10px;">
+		<table width="100%" height='100%'>
+			<tr>
+				<td colspan='3'><div class="packName">Willow Banks (Super Deluxe Room) - 6 Jan to 31 Mar 2012 3 Days / 2 Nights 
+				</div></td>
+			</tr>
+			<tr style="border-bottom:1px solid #C9CAC4;">
+				<td valign="top" style='padding: 10px 10px 0px 20px;'>
+					<div style="width:405px;border-right:1px solid #DDD;min-height: 170px;float: left;">
+					 	<div style="height:140px;">
+					 		<div style="float:left; width: 45%;">
+					 			<a href="http://www.via.com/bdo?action1=PSRC&pkgRadioBtn=0&page=detailed&prodId=9576&cityId=-1&holDestination=shimla&isFirst=true"><img src="http://images.via.com/static/img/codes/9576/thumb.jpg" width="175" height="135"></a>
+					 		</div>
+						 	<div style="float:left; width:50%;padding: 0px 5px;">
+								
+								<div style="color: #656565;font-size:12px;height:100px;">
+									<p style='line-height:15px;'>Renowned as the once summer capital of the British Raj, this beautiful hill station is surrounded by forests of pine and deodar and snow-clad peaks. S<p>
+									<a href="http://www.via.com/bdo?action1=PSRC&pkgRadioBtn=0&page=detailed&prodId=9576&cityId=-1&holDestination=shimla&isFirst=true" style='color:green;text-decoration: none;font-weight: bold;'>more &#187 </a>
+								</div>
+								<div style="margin-top:10px;height:30px;">
+									  
+								</div>
+					 		</div>
+					 	</div>				
+					</div>
+					<div style="clear: both;"></div>			
+				</td>
+				<td valign="top" style='padding:6px 0px 0px 0px;'>
+					<div style="width:290px;min-height:170px;float: left;">
+						<div class="packInc">Inclusions</div>
+						<ul class='sUl'>
+						<li>2 nights accommodation on twin sharing basis in Super Deluxe Room</li>
+						<li>Non-alcoholic welcome drink and cookies on arrival</li>
+						<li>Daily breakfast and lunch or dinner</li>
+						<li>10% discount on F&B other than package</li>
+						
+					 	</ul>
+					</div>
+				</td>
+				
+				<td valign="top" style='padding:6px 0px 0px 10px;'>
+					<div style="width:175px;min-height:170px;float: left;border-left:1px solid #DDD;padding-left:25px;">
+						<img src="/static/img/viacom/4star.gif" />
+						<p style="color:#656565;font-size:10px;margin-bottom:0;">starting from</p>
+					 	<p style="font-family: arial;font-weight: bold;font-size:20px;margin-bottom:0px;"><img alt="Rs." height='15' src="/static/img/v1/holidays/rupee.png">&nbsp;6,195</p>
+					 	<p style="margin-bottom:5px;"><span style="color:#656565;font-size:10px;">per person on twin sharing</span></p>
+					 	<p class='showIncentiveCont' style='display:none;'><span style='background-color:#FFF06E;color:#161616;font-size:11px;font-weight: bold;padding:2px 5px;'>Commission: Rs.550</span></p>
+					 	<!--<p style='color:#161616;font-weight:bold;font-size:14px;margin-bottom:0;'>3 Days / 2 Nights</p>-->
+					 	
+					 	
+					 	<p style="color:#656565;font-size:11px;margin-bottom:0;">From: Shimla</p>
+					 	<p style="color:#656565;font-size:11px;margin-bottom:0;">Validity: 06-Jan-12 to 31-Mar-12</p>
+					 	
+					 	
+					 	<p style="color:#656565;font-size:11px;margin-bottom:0;">Accomodation: <span style='text-transform: capitalize;'>Twin Share</span></p>
+					 	
+					 	<div style="display:none" id="pkg1_details">131,</div>
+					 	<div style="display:none" id="pkg1_budget">6195</div>
+					 	<div style="display:none" id="pkg1_duration">3</div> 
+					 </div>
+				</td>
+			</tr>
+			<tr>
+				<td style='padding:10px 0px 10px 20px;'>
+					<div>
+						<div style="float:left;font-family:arial;font-size:11px;font-weight:bold;display:none;">
+							<a style='margin-right:5px;color:#454545;'>More Photos</a>|<a style='margin-left:5px;color:#454545;'>Maps</a>
+						</div>
+					</div>
+				</td>
+				
+				<td style='padding:10px 20px 10px 0px;'colspan='2'>
+					<div style="float:right;" >
+					
+							<span style="display:none;"><img alt="View Details" src="/static/img/v1/holidays/sendEnquiry.png"></span>	
+					
+					</div>
+					<div style="float: right;padding-right:10px;" >
+						<span>
+							 <a href="http://www.via.com/bdo?action1=PSRC&pkgRadioBtn=0&page=detailed&prodId=9576&cityId=-1&holDestination=shimla&isFirst=true"><img alt="View Details" src="/static/img/v1/holidays/viewPackage.png"></a>	
+						</span>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+												</td>
+											</tr>
+										
+										
+											<tr>
+												<td style='padding: 0px;'>
+													
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+.sUlthd{
+	color: green;
+	font-size:20px;
+}
+.packName{
+	font-size:17px;
+	font-family:arial;
+	font-weight: bold;
+	color: #454545;
+	padding:10px 0 0 15px;
+}
+.packInc{
+	font-size:14px;
+	font-family:arial;
+	font-weight: bold;
+	color: #454545;
+	padding:0px 25px 5px 25px;
+}
+.sUl {
+	margin:0 10px 0 2em !important;
+}
+.sUl li{
+	list-style: disc outside none;
+	border-bottom: 1px solid #DDD;
+	padding: 5px;
+	color: #454545;
+	font-size:12px;
+}
+
+
+</style>
+<div id='pkg2'>
+	
+	<div style="width:100%;min-height:280px;background: #FFF;border:1px solid #ddd;margin-bottom: 10px;">
+		<table width="100%" height='100%'>
+			<tr>
+				<td colspan='3'><div class="packName">Himalayan Treasures - till June 2012 - Budget 6 Days / 5 Nights 
+				</div></td>
+			</tr>
+			<tr style="border-bottom:1px solid #C9CAC4;">
+				<td valign="top" style='padding: 10px 10px 0px 20px;'>
+					<div style="width:405px;border-right:1px solid #DDD;min-height: 170px;float: left;">
+					 	<div style="height:140px;">
+					 		<div style="float:left; width: 45%;">
+					 			<a href="http://www.via.com/bdo?action1=PSRC&pkgRadioBtn=0&page=detailed&prodId=10484&cityId=-1&holDestination=shimla&isFirst=true"><img src="http://images.via.com/static/img/codes/10484/thumb.jpg" width="175" height="135"></a>
+					 		</div>
+						 	<div style="float:left; width:50%;padding: 0px 5px;">
+								
+								<div style="color: #656565;font-size:12px;height:100px;">
+									<p style='line-height:15px;'>Embark upon a journey to two of the most famous hill stations in the Himalayas Shimla and Manali. Marvel at the old-world-charm of the erstwhile summe<p>
+									<a href="http://www.via.com/bdo?action1=PSRC&pkgRadioBtn=0&page=detailed&prodId=10484&cityId=-1&holDestination=shimla&isFirst=true" style='color:green;text-decoration: none;font-weight: bold;'>more &#187 </a>
+								</div>
+								<div style="margin-top:10px;height:30px;">
+									  
+								</div>
+					 		</div>
+					 	</div>				
+					</div>
+					<div style="clear: both;"></div>			
+				</td>
+				<td valign="top" style='padding:6px 0px 0px 0px;'>
+					<div style="width:290px;min-height:170px;float: left;">
+						<div class="packInc">Inclusions</div>
+						<ul class='sUl'>
+						<li>5 nights accommodation on twin sharing basis</li>
+						<li>Breakfast and dinner</li>
+						<li>Transfers and sightseeing as per the itinerary using air-conditioned car. A/c will work only in the plains and not in the hills</li>
+						<li>All currently applicable taxes except the Government Service Tax</li>
+						
+					 	</ul>
+					</div>
+				</td>
+				
+				<td valign="top" style='padding:6px 0px 0px 10px;'>
+					<div style="width:175px;min-height:170px;float: left;border-left:1px solid #DDD;padding-left:25px;">
+						<img src="/static/img/viacom/2star.gif" />
+						<p style="color:#656565;font-size:10px;margin-bottom:0;">starting from</p>
+					 	<p style="font-family: arial;font-weight: bold;font-size:20px;margin-bottom:0px;"><img alt="Rs." height='15' src="/static/img/v1/holidays/rupee.png">&nbsp;13,999</p>
+					 	<p style="margin-bottom:5px;"><span style="color:#656565;font-size:10px;">per person on twin sharing</span></p>
+					 	<p class='showIncentiveCont' style='display:none;'><span style='background-color:#FFF06E;color:#161616;font-size:11px;font-weight: bold;padding:2px 5px;'>Commission: Rs.1,400</span></p>
+					 	<!--<p style='color:#161616;font-weight:bold;font-size:14px;margin-bottom:0;'>6 Days / 5 Nights</p>-->
+					 	
+					 	
+					 	<p style="color:#656565;font-size:11px;margin-bottom:0;">From: Delhi</p>
+					 	<p style="color:#656565;font-size:11px;margin-bottom:0;">Validity: 01-Apr-12 to 30-Jun-12</p>
+					 	
+					 	
+					 	<p style="color:#656565;font-size:11px;margin-bottom:0;">Accomodation: <span style='text-transform: capitalize;'>Twin Share</span></p>
+					 	
+					 	<div style="display:none" id="pkg2_details">297,</div>
+					 	<div style="display:none" id="pkg2_budget">13999</div>
+					 	<div style="display:none" id="pkg2_duration">6</div> 
+					 </div>
+				</td>
+			</tr>
+			<tr>
+				<td style='padding:10px 0px 10px 20px;'>
+					<div>
+						<div style="float:left;font-family:arial;font-size:11px;font-weight:bold;display:none;">
+							<a style='margin-right:5px;color:#454545;'>More Photos</a>|<a style='margin-left:5px;color:#454545;'>Maps</a>
+						</div>
+					</div>
+				</td>
+				
+				<td style='padding:10px 20px 10px 0px;'colspan='2'>
+					<div style="float:right;" >
+					
+							<span style="display:none;"><img alt="View Details" src="/static/img/v1/holidays/sendEnquiry.png"></span>	
+					
+					</div>
+					<div style="float: right;padding-right:10px;" >
+						<span>
+							 <a href="http://www.via.com/bdo?action1=PSRC&pkgRadioBtn=0&page=detailed&prodId=10484&cityId=-1&holDestination=shimla&isFirst=true"><img alt="View Details" src="/static/img/v1/holidays/viewPackage.png"></a>	
+						</span>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+												</td>
+											</tr>
+										
+										
+											<tr>
+												<td style='padding: 0px;'>
+													
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+.sUlthd{
+	color: green;
+	font-size:20px;
+}
+.packName{
+	font-size:17px;
+	font-family:arial;
+	font-weight: bold;
+	color: #454545;
+	padding:10px 0 0 15px;
+}
+.packInc{
+	font-size:14px;
+	font-family:arial;
+	font-weight: bold;
+	color: #454545;
+	padding:0px 25px 5px 25px;
+}
+.sUl {
+	margin:0 10px 0 2em !important;
+}
+.sUl li{
+	list-style: disc outside none;
+	border-bottom: 1px solid #DDD;
+	padding: 5px;
+	color: #454545;
+	font-size:12px;
+}
+
+
+</style>
+<div id='pkg3'>
+	
+	<div style="width:100%;min-height:280px;background: #FFF;border:1px solid #ddd;margin-bottom: 10px;">
+		<table width="100%" height='100%'>
+			<tr>
+				<td colspan='3'><div class="packName">Himalayan Treasures - 6 Jan to Mar 2012 7 Days / 6 Nights 
+				</div></td>
+			</tr>
+			<tr style="border-bottom:1px solid #C9CAC4;">
+				<td valign="top" style='padding: 10px 10px 0px 20px;'>
+					<div style="width:405px;border-right:1px solid #DDD;min-height: 170px;float: left;">
+					 	<div style="height:140px;">
+					 		<div style="float:left; width: 45%;">
+					 			<a href="http://www.via.com/bdo?action1=PSRC&pkgRadioBtn=0&page=detailed&prodId=10125&cityId=-1&holDestination=shimla&isFirst=true"><img src="http://images.via.com/static/img/codes/10125/thumb.jpg" width="175" height="135"></a>
+					 		</div>
+						 	<div style="float:left; width:50%;padding: 0px 5px;">
+								
+								<div style="color: #656565;font-size:12px;height:100px;">
+									<p style='line-height:15px;'>Embark upon a journey to two of the most famous hill stations in the Himalayas Shimla and Manali. Marvel at the old-world-charm of the erstwhile summe<p>
+									<a href="http://www.via.com/bdo?action1=PSRC&pkgRadioBtn=0&page=detailed&prodId=10125&cityId=-1&holDestination=shimla&isFirst=true" style='color:green;text-decoration: none;font-weight: bold;'>more &#187 </a>
+								</div>
+								<div style="margin-top:10px;height:30px;">
+									  
+								</div>
+					 		</div>
+					 	</div>				
+					</div>
+					<div style="clear: both;"></div>			
+				</td>
+				<td valign="top" style='padding:6px 0px 0px 0px;'>
+					<div style="width:290px;min-height:170px;float: left;">
+						<div class="packInc">Inclusions</div>
+						<ul class='sUl'>
+						<li>6 nights accommodation in well appointed rooms</li>
+						<li>Daily breakfast and dinner at all hotels</li>
+						<li>Transfers and sightseeing as per the itinerary using an air-conditioned car. A/c will work only in the plains and not in the hills</li>
+						<li>Presently applicable drivers allowance, parking charges and toll for the vehicle</li>
+						
+					 	</ul>
+					</div>
+				</td>
+				
+				<td valign="top" style='padding:6px 0px 0px 10px;'>
+					<div style="width:175px;min-height:170px;float: left;border-left:1px solid #DDD;padding-left:25px;">
+						<img src="/static/img/viacom/3star.gif" />
+						<p style="color:#656565;font-size:10px;margin-bottom:0;">starting from</p>
+					 	<p style="font-family: arial;font-weight: bold;font-size:20px;margin-bottom:0px;"><img alt="Rs." height='15' src="/static/img/v1/holidays/rupee.png">&nbsp;15,600</p>
+					 	<p style="margin-bottom:5px;"><span style="color:#656565;font-size:10px;">per person on twin sharing</span></p>
+					 	<p class='showIncentiveCont' style='display:none;'><span style='background-color:#FFF06E;color:#161616;font-size:11px;font-weight: bold;padding:2px 5px;'>Commission: Rs.1,900</span></p>
+					 	<!--<p style='color:#161616;font-weight:bold;font-size:14px;margin-bottom:0;'>7 Days / 6 Nights</p>-->
+					 	
+					 	
+					 	<p style="color:#656565;font-size:11px;margin-bottom:0;">From: Delhi</p>
+					 	<p style="color:#656565;font-size:11px;margin-bottom:0;">Validity: 06-Jan-12 to 31-Mar-12</p>
+					 	
+					 	
+					 	<p style="color:#656565;font-size:11px;margin-bottom:0;">Accomodation: <span style='text-transform: capitalize;'>Twin Share</span></p>
+					 	
+					 	<div style="display:none" id="pkg3_details">297,</div>
+					 	<div style="display:none" id="pkg3_budget">15600</div>
+					 	<div style="display:none" id="pkg3_duration">7</div> 
+					 </div>
+				</td>
+			</tr>
+			<tr>
+				<td style='padding:10px 0px 10px 20px;'>
+					<div>
+						<div style="float:left;font-family:arial;font-size:11px;font-weight:bold;display:none;">
+							<a style='margin-right:5px;color:#454545;'>More Photos</a>|<a style='margin-left:5px;color:#454545;'>Maps</a>
+						</div>
+					</div>
+				</td>
+				
+				<td style='padding:10px 20px 10px 0px;'colspan='2'>
+					<div style="float:right;" >
+					
+							<span style="display:none;"><img alt="View Details" src="/static/img/v1/holidays/sendEnquiry.png"></span>	
+					
+					</div>
+					<div style="float: right;padding-right:10px;" >
+						<span>
+							 <a href="http://www.via.com/bdo?action1=PSRC&pkgRadioBtn=0&page=detailed&prodId=10125&cityId=-1&holDestination=shimla&isFirst=true"><img alt="View Details" src="/static/img/v1/holidays/viewPackage.png"></a>	
+						</span>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+												</td>
+											</tr>
+										
+										
+											<tr>
+												<td style='padding: 0px;'>
+													
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+.sUlthd{
+	color: green;
+	font-size:20px;
+}
+.packName{
+	font-size:17px;
+	font-family:arial;
+	font-weight: bold;
+	color: #454545;
+	padding:10px 0 0 15px;
+}
+.packInc{
+	font-size:14px;
+	font-family:arial;
+	font-weight: bold;
+	color: #454545;
+	padding:0px 25px 5px 25px;
+}
+.sUl {
+	margin:0 10px 0 2em !important;
+}
+.sUl li{
+	list-style: disc outside none;
+	border-bottom: 1px solid #DDD;
+	padding: 5px;
+	color: #454545;
+	font-size:12px;
+}
+
+
+</style>
+<div id='pkg4'>
+	
+	<div style="width:100%;min-height:280px;background: #FFF;border:1px solid #ddd;margin-bottom: 10px;">
+		<table width="100%" height='100%'>
+			<tr>
+				<td colspan='3'><div class="packName">Himalayan Treasures - till June 2012 - Standard 6 Days / 5 Nights 
+				</div></td>
+			</tr>
+			<tr style="border-bottom:1px solid #C9CAC4;">
+				<td valign="top" style='padding: 10px 10px 0px 20px;'>
+					<div style="width:405px;border-right:1px solid #DDD;min-height: 170px;float: left;">
+					 	<div style="height:140px;">
+					 		<div style="float:left; width: 45%;">
+					 			<a href="http://www.via.com/bdo?action1=PSRC&pkgRadioBtn=0&page=detailed&prodId=10485&cityId=-1&holDestination=shimla&isFirst=true"><img src="http://images.via.com/static/img/codes/10485/thumb.jpg" width="175" height="135"></a>
+					 		</div>
+						 	<div style="float:left; width:50%;padding: 0px 5px;">
+								
+								<div style="color: #656565;font-size:12px;height:100px;">
+									<p style='line-height:15px;'>Embark upon a journey to two of the most famous hill stations in the Himalayas Shimla and Manali. Marvel at the old-world-charm of the erstwhile summe<p>
+									<a href="http://www.via.com/bdo?action1=PSRC&pkgRadioBtn=0&page=detailed&prodId=10485&cityId=-1&holDestination=shimla&isFirst=true" style='color:green;text-decoration: none;font-weight: bold;'>more &#187 </a>
+								</div>
+								<div style="margin-top:10px;height:30px;">
+									  
+								</div>
+					 		</div>
+					 	</div>				
+					</div>
+					<div style="clear: both;"></div>			
+				</td>
+				<td valign="top" style='padding:6px 0px 0px 0px;'>
+					<div style="width:290px;min-height:170px;float: left;">
+						<div class="packInc">Inclusions</div>
+						<ul class='sUl'>
+						<li>5 nights accommodation on twin sharing basis</li>
+						<li>Breakfast and dinner</li>
+						<li>Transfers and sightseeing as per the itinerary using air-conditioned car. A/c will work only in the plains and not in the hills</li>
+						<li>All currently applicable taxes except the Government Service Tax</li>
+						
+					 	</ul>
+					</div>
+				</td>
+				
+				<td valign="top" style='padding:6px 0px 0px 10px;'>
+					<div style="width:175px;min-height:170px;float: left;border-left:1px solid #DDD;padding-left:25px;">
+						<img src="/static/img/viacom/3star.gif" />
+						<p style="color:#656565;font-size:10px;margin-bottom:0;">starting from</p>
+					 	<p style="font-family: arial;font-weight: bold;font-size:20px;margin-bottom:0px;"><img alt="Rs." height='15' src="/static/img/v1/holidays/rupee.png">&nbsp;15,999</p>
+					 	<p style="margin-bottom:5px;"><span style="color:#656565;font-size:10px;">per person on twin sharing</span></p>
+					 	<p class='showIncentiveCont' style='display:none;'><span style='background-color:#FFF06E;color:#161616;font-size:11px;font-weight: bold;padding:2px 5px;'>Commission: Rs.1,600</span></p>
+					 	<!--<p style='color:#161616;font-weight:bold;font-size:14px;margin-bottom:0;'>6 Days / 5 Nights</p>-->
+					 	
+					 	
+					 	<p style="color:#656565;font-size:11px;margin-bottom:0;">From: Delhi</p>
+					 	<p style="color:#656565;font-size:11px;margin-bottom:0;">Validity: 01-Apr-12 to 30-Jun-12</p>
+					 	
+					 	
+					 	<p style="color:#656565;font-size:11px;margin-bottom:0;">Accomodation: <span style='text-transform: capitalize;'>Twin Share</span></p>
+					 	
+					 	<div style="display:none" id="pkg4_details">297,</div>
+					 	<div style="display:none" id="pkg4_budget">15999</div>
+					 	<div style="display:none" id="pkg4_duration">6</div> 
+					 </div>
+				</td>
+			</tr>
+			<tr>
+				<td style='padding:10px 0px 10px 20px;'>
+					<div>
+						<div style="float:left;font-family:arial;font-size:11px;font-weight:bold;display:none;">
+							<a style='margin-right:5px;color:#454545;'>More Photos</a>|<a style='margin-left:5px;color:#454545;'>Maps</a>
+						</div>
+					</div>
+				</td>
+				
+				<td style='padding:10px 20px 10px 0px;'colspan='2'>
+					<div style="float:right;" >
+					
+							<span style="display:none;"><img alt="View Details" src="/static/img/v1/holidays/sendEnquiry.png"></span>	
+					
+					</div>
+					<div style="float: right;padding-right:10px;" >
+						<span>
+							 <a href="http://www.via.com/bdo?action1=PSRC&pkgRadioBtn=0&page=detailed&prodId=10485&cityId=-1&holDestination=shimla&isFirst=true"><img alt="View Details" src="/static/img/v1/holidays/viewPackage.png"></a>	
+						</span>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+												</td>
+											</tr>
+										
+										
+											<tr>
+												<td style='padding: 0px;'>
+													
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+.sUlthd{
+	color: green;
+	font-size:20px;
+}
+.packName{
+	font-size:17px;
+	font-family:arial;
+	font-weight: bold;
+	color: #454545;
+	padding:10px 0 0 15px;
+}
+.packInc{
+	font-size:14px;
+	font-family:arial;
+	font-weight: bold;
+	color: #454545;
+	padding:0px 25px 5px 25px;
+}
+.sUl {
+	margin:0 10px 0 2em !important;
+}
+.sUl li{
+	list-style: disc outside none;
+	border-bottom: 1px solid #DDD;
+	padding: 5px;
+	color: #454545;
+	font-size:12px;
+}
+
+
+</style>
+<div id='pkg5'>
+	
+	<div style="width:100%;min-height:280px;background: #FFF;border:1px solid #ddd;margin-bottom: 10px;">
+		<table width="100%" height='100%'>
+			<tr>
+				<td colspan='3'><div class="packName">Himalayan Treasures with Chandigarh - till June 2012 - Budget 7 Days / 6 Nights 
+				</div></td>
+			</tr>
+			<tr style="border-bottom:1px solid #C9CAC4;">
+				<td valign="top" style='padding: 10px 10px 0px 20px;'>
+					<div style="width:405px;border-right:1px solid #DDD;min-height: 170px;float: left;">
+					 	<div style="height:140px;">
+					 		<div style="float:left; width: 45%;">
+					 			<a href="http://www.via.com/bdo?action1=PSRC&pkgRadioBtn=0&page=detailed&prodId=10482&cityId=-1&holDestination=shimla&isFirst=true"><img src="http://images.via.com/static/img/codes/10482/thumb.jpg" width="175" height="135"></a>
+					 		</div>
+						 	<div style="float:left; width:50%;padding: 0px 5px;">
+								
+								<div style="color: #656565;font-size:12px;height:100px;">
+									<p style='line-height:15px;'>Embark upon a journey to two of the most famous hill stations in the Himalayas Shimla and Manali. Marvel at the old-world-charm of the erstwhile summe<p>
+									<a href="http://www.via.com/bdo?action1=PSRC&pkgRadioBtn=0&page=detailed&prodId=10482&cityId=-1&holDestination=shimla&isFirst=true" style='color:green;text-decoration: none;font-weight: bold;'>more &#187 </a>
+								</div>
+								<div style="margin-top:10px;height:30px;">
+									  
+								</div>
+					 		</div>
+					 	</div>				
+					</div>
+					<div style="clear: both;"></div>			
+				</td>
+				<td valign="top" style='padding:6px 0px 0px 0px;'>
+					<div style="width:290px;min-height:170px;float: left;">
+						<div class="packInc">Inclusions</div>
+						<ul class='sUl'>
+						<li>6 nights accommodation on twin sharing basis</li>
+						<li>Breakfast and dinner</li>
+						<li>Transfers and sightseeing as per the itinerary using air-conditioned car. A/c will work only in the plains and not in the hills</li>
+						<li>All currently applicable taxes except the Government Service Tax</li>
+						
+					 	</ul>
+					</div>
+				</td>
+				
+				<td valign="top" style='padding:6px 0px 0px 10px;'>
+					<div style="width:175px;min-height:170px;float: left;border-left:1px solid #DDD;padding-left:25px;">
+						<img src="/static/img/viacom/2star.gif" />
+						<p style="color:#656565;font-size:10px;margin-bottom:0;">starting from</p>
+					 	<p style="font-family: arial;font-weight: bold;font-size:20px;margin-bottom:0px;"><img alt="Rs." height='15' src="/static/img/v1/holidays/rupee.png">&nbsp;15,999</p>
+					 	<p style="margin-bottom:5px;"><span style="color:#656565;font-size:10px;">per person on twin sharing</span></p>
+					 	<p class='showIncentiveCont' style='display:none;'><span style='background-color:#FFF06E;color:#161616;font-size:11px;font-weight: bold;padding:2px 5px;'>Commission: Rs.1,600</span></p>
+					 	<!--<p style='color:#161616;font-weight:bold;font-size:14px;margin-bottom:0;'>7 Days / 6 Nights</p>-->
+					 	
+					 	
+					 	<p style="color:#656565;font-size:11px;margin-bottom:0;">From: Delhi</p>
+					 	<p style="color:#656565;font-size:11px;margin-bottom:0;">Validity: 01-Apr-12 to 30-Jun-12</p>
+					 	
+					 	
+					 	<p style="color:#656565;font-size:11px;margin-bottom:0;">Accomodation: <span style='text-transform: capitalize;'>Twin Share</span></p>
+					 	
+					 	<div style="display:none" id="pkg5_details">297,</div>
+					 	<div style="display:none" id="pkg5_budget">15999</div>
+					 	<div style="display:none" id="pkg5_duration">7</div> 
+					 </div>
+				</td>
+			</tr>
+			<tr>
+				<td style='padding:10px 0px 10px 20px;'>
+					<div>
+						<div style="float:left;font-family:arial;font-size:11px;font-weight:bold;display:none;">
+							<a style='margin-right:5px;color:#454545;'>More Photos</a>|<a style='margin-left:5px;color:#454545;'>Maps</a>
+						</div>
+					</div>
+				</td>
+				
+				<td style='padding:10px 20px 10px 0px;'colspan='2'>
+					<div style="float:right;" >
+					
+							<span style="display:none;"><img alt="View Details" src="/static/img/v1/holidays/sendEnquiry.png"></span>	
+					
+					</div>
+					<div style="float: right;padding-right:10px;" >
+						<span>
+							 <a href="http://www.via.com/bdo?action1=PSRC&pkgRadioBtn=0&page=detailed&prodId=10482&cityId=-1&holDestination=shimla&isFirst=true"><img alt="View Details" src="/static/img/v1/holidays/viewPackage.png"></a>	
+						</span>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+												</td>
+											</tr>
+										
+										
+											<tr>
+												<td style='padding: 0px;'>
+													
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+.sUlthd{
+	color: green;
+	font-size:20px;
+}
+.packName{
+	font-size:17px;
+	font-family:arial;
+	font-weight: bold;
+	color: #454545;
+	padding:10px 0 0 15px;
+}
+.packInc{
+	font-size:14px;
+	font-family:arial;
+	font-weight: bold;
+	color: #454545;
+	padding:0px 25px 5px 25px;
+}
+.sUl {
+	margin:0 10px 0 2em !important;
+}
+.sUl li{
+	list-style: disc outside none;
+	border-bottom: 1px solid #DDD;
+	padding: 5px;
+	color: #454545;
+	font-size:12px;
+}
+
+
+</style>
+<div id='pkg6'>
+	
+	<div style="width:100%;min-height:280px;background: #FFF;border:1px solid #ddd;margin-bottom: 10px;">
+		<table width="100%" height='100%'>
+			<tr>
+				<td colspan='3'><div class="packName">Himalayan Treasures with Chandigarh - till June 2012 - Standard 7 Days / 6 Nights 
+				</div></td>
+			</tr>
+			<tr style="border-bottom:1px solid #C9CAC4;">
+				<td valign="top" style='padding: 10px 10px 0px 20px;'>
+					<div style="width:405px;border-right:1px solid #DDD;min-height: 170px;float: left;">
+					 	<div style="height:140px;">
+					 		<div style="float:left; width: 45%;">
+					 			<a href="http://www.via.com/bdo?action1=PSRC&pkgRadioBtn=0&page=detailed&prodId=10483&cityId=-1&holDestination=shimla&isFirst=true"><img src="http://images.via.com/static/img/codes/10483/thumb.jpg" width="175" height="135"></a>
+					 		</div>
+						 	<div style="float:left; width:50%;padding: 0px 5px;">
+								
+								<div style="color: #656565;font-size:12px;height:100px;">
+									<p style='line-height:15px;'>Embark upon a journey to two of the most famous hill stations in the Himalayas Shimla and Manali. Marvel at the old-world-charm of the erstwhile summe<p>
+									<a href="http://www.via.com/bdo?action1=PSRC&pkgRadioBtn=0&page=detailed&prodId=10483&cityId=-1&holDestination=shimla&isFirst=true" style='color:green;text-decoration: none;font-weight: bold;'>more &#187 </a>
+								</div>
+								<div style="margin-top:10px;height:30px;">
+									  
+								</div>
+					 		</div>
+					 	</div>				
+					</div>
+					<div style="clear: both;"></div>			
+				</td>
+				<td valign="top" style='padding:6px 0px 0px 0px;'>
+					<div style="width:290px;min-height:170px;float: left;">
+						<div class="packInc">Inclusions</div>
+						<ul class='sUl'>
+						<li>6 nights accommodation on twin sharing basis</li>
+						<li>Breakfast and dinner</li>
+						<li>Transfers and sightseeing as per the itinerary using air-conditioned car. A/c will work only in the plains and not in the hills</li>
+						<li>All currently applicable taxes except the Government Service Tax</li>
+						
+					 	</ul>
+					</div>
+				</td>
+				
+				<td valign="top" style='padding:6px 0px 0px 10px;'>
+					<div style="width:175px;min-height:170px;float: left;border-left:1px solid #DDD;padding-left:25px;">
+						<img src="/static/img/viacom/3star.gif" />
+						<p style="color:#656565;font-size:10px;margin-bottom:0;">starting from</p>
+					 	<p style="font-family: arial;font-weight: bold;font-size:20px;margin-bottom:0px;"><img alt="Rs." height='15' src="/static/img/v1/holidays/rupee.png">&nbsp;17,999</p>
+					 	<p style="margin-bottom:5px;"><span style="color:#656565;font-size:10px;">per person on twin sharing</span></p>
+					 	<p class='showIncentiveCont' style='display:none;'><span style='background-color:#FFF06E;color:#161616;font-size:11px;font-weight: bold;padding:2px 5px;'>Commission: Rs.1,750</span></p>
+					 	<!--<p style='color:#161616;font-weight:bold;font-size:14px;margin-bottom:0;'>7 Days / 6 Nights</p>-->
+					 	
+					 	
+					 	<p style="color:#656565;font-size:11px;margin-bottom:0;">From: Delhi</p>
+					 	<p style="color:#656565;font-size:11px;margin-bottom:0;">Validity: 01-Apr-12 to 30-Jun-12</p>
+					 	
+					 	
+					 	<p style="color:#656565;font-size:11px;margin-bottom:0;">Accomodation: <span style='text-transform: capitalize;'>Twin Share</span></p>
+					 	
+					 	<div style="display:none" id="pkg6_details">297,</div>
+					 	<div style="display:none" id="pkg6_budget">17999</div>
+					 	<div style="display:none" id="pkg6_duration">7</div> 
+					 </div>
+				</td>
+			</tr>
+			<tr>
+				<td style='padding:10px 0px 10px 20px;'>
+					<div>
+						<div style="float:left;font-family:arial;font-size:11px;font-weight:bold;display:none;">
+							<a style='margin-right:5px;color:#454545;'>More Photos</a>|<a style='margin-left:5px;color:#454545;'>Maps</a>
+						</div>
+					</div>
+				</td>
+				
+				<td style='padding:10px 20px 10px 0px;'colspan='2'>
+					<div style="float:right;" >
+					
+							<span style="display:none;"><img alt="View Details" src="/static/img/v1/holidays/sendEnquiry.png"></span>	
+					
+					</div>
+					<div style="float: right;padding-right:10px;" >
+						<span>
+							 <a href="http://www.via.com/bdo?action1=PSRC&pkgRadioBtn=0&page=detailed&prodId=10483&cityId=-1&holDestination=shimla&isFirst=true"><img alt="View Details" src="/static/img/v1/holidays/viewPackage.png"></a>	
+						</span>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+												</td>
+											</tr>
+											
+										</table>
+									</div>	
+								</td>
+							</tr>
+						</table>
+					</div>
+					<div style="clear:both;"></div>
+					<div style="display:none;"><br></div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div class='divoverlay' style="position:fixed;top:0;left:0;width:100%;z-index: 2000;background: #000;opacity:0.6;height: 100%;display:none;">
+&nbsp;
+</div>
+<div class='modifyFormHead' style="position:absolute;top:136px;right:123px;z-index: 2001;padding: 5px 10px;width:110px;background-color:#fff;font-size:12px;float:right;font-weight:bold;color:#161616;display:none;cursor: pointer;"> <span style='color:#a0a0a0!important;font-size:14px;'>-</span> &nbsp;Modify Search</div>
+<div class='modifyFormCont' style="z-index: 2001;width:970px;background: #fff;position: absolute;top:163px;right:0px;display:none;">
+	<div style='width:960px;'>
+		<div class='modifyFormClose' style='width:50px;background-color:#616161;color:#fff;margin-top:10px;padding:3px 10px;font-size:12px;float:right;cursor: pointer;'>X Close</div>
+		<div style='width:80%;padding:40px 10px 40px 80px;'>
+		<form action="" method="post" name="radioForm">
+		<table width='100%' height='100%'>
+			<tr style='border-bottom:1px solid #DDD;border-right:0;'>
+				<td style='padding-left:10px;padding-bottom:15px;border-right:0;' colspan='3'> 
+					<div class='searchTypeDiv'> Domestic Holidays <span ><input type="radio" name="pkgRadioBtn" value="0" onclick="changePkgType()" style='margin-left:10px;'></span></div>
+					<div class='searchTypeDiv'> International Holidays <span ><input type="radio" name="pkgRadioBtn" value="1"   style='margin-left:10px;' onclick="changePkgType()"></span></div>
+				</td>
+			</tr>
+		</table>
+		</form>
+		</div>
+	</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+</div></div>
+
+
+
+<div id="ft" class="u_block">
+
+
+
+<style type="text/css">
+.footertoplink td {
+	border:none;
+}
+.viafooterlink{ 
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-style:normal;
+font-size:11px;
+color: #000000;
+margin: 0px 0px 0px 0px;
+text-align:left;
+text-decoration: none;
+padding: 0;
+}
+
+.viafooterlink a{ 
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-style:normal;
+font-size:11px;
+color: #000000;
+margin: 0px 0px 0px 0px;
+text-align:left;
+text-decoration: none;
+padding: 0;
+}
+
+.viafooterlink ul{ 
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-style:normal;
+font-size:8pt;
+color: #000000;
+margin: 0px 0px 0px 0px;
+text-align:left;
+padding: 0;
+}
+
+.viafooterlink li{ 
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-style:normal;
+font-size:8pt;
+color: #000000;
+margin: 0px 0px 0px 0px;
+text-align:top;
+padding: 0;
+text-decoration: none;
+}
+
+
+.viafooterheading{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-style:normal;
+	font-size:8pt;
+	margin: 0px 0px 0px 0px;
+}
+.viafooterheading ul {
+	margin:0;
+	line-height:10pt;
+}
+.viafooter{
+	padding-top:5px;
+	font-family:verdana;
+	font-size:11px;
+	color:#6c6a5c;
+}
+.footerSeparator{
+	color:#6c6a5c;
+	line-height:11px;
+	letter-spacing:0;
+}
+.footerbotlink{
+	text-align:right;
+}
+.seoLinks{
+	float:left;
+	margin-left:15px;
+	color:#888;
+	text-decoration:none;
+	line-height: 25px;
+}
+.seoLinks:hover{
+	color:#111;
+}
+.footerNewContainer{
+	padding: 10px 12px 10px 3px;
+}
+#ft a{
+	 
+	color: #393939;
+}
+</style>
+<!--[if lte IE 7]>
+	<style type="text/css">
+		.footerNewContainer{
+			padding: 10px 6px 10px 10px;
+		}
+	</style>
+<![endif]-->
+
+<div style='margin:0 auto;width: 960px;padding-bottom: 30px;background:none;'>
+
+
+
+
+	<script type="text/javascript">
+
+(function(){var a=document.createElement("script");
+var b=document.getElementsByTagName('script')[0];
+a.src=document.location.protocol+"//dnn506yrbagrg.cloudfront.net/pages/scripts/0012/0906.js?"+Math.floor(new Date().getTime()/3600000);
+a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}());
+
+</script>
+
+	<div id="globalFooter" style="width:100%;float: left;margin-top: 20px;">
+		<div class="LinkContainer" id="UsefulLinks">
+			<ul>
+				<li class="firstLink">Via.com:</li>
+				<li><a href="http://www.via.com/go/world/whyvia">Airline Speak</a></li>
+				<li><a href="http://www.via.com/membership">Membership</a></li>
+				<li><a href="http://www.via.com/go/world/careers">Careers</a></li>
+				<li><a href="http://blog.via.com">Via Blog</a></li>
+				<li><a href="http://deals.via.com">Deals</a></li>
+				<li class="lastLink" style="text-align:right">
+			</ul>
+		</div>
+		<div class="LinkContainer" id="UsefulLinks">
+			<ul>
+				<li class="firstLink">Products:</li>
+				<li><a href="http://www.via.com/flight-tickets">Domestic Flights</a></li>
+				<li><a href="http://www.via.com/international-flights">International Flights</a></li>
+				<li><a href="http://www.via.com/hotels">Hotels</a></li>
+				<li><a href="http://www.via.com/rail-tickets">Railway</a></li>
+				<li><a href="http://www.via.com/bus-tickets">Bus</a></li>
+				<li><a href="http://www.via.com/holidays">Holidays</a></li>
+				<li><a href="http://www.viaworld.in/agent">Travel Agents</a></li>
+			</ul>
+		</div>
+		<div class="LinkContainer" id="UsefulLinks">
+			<ul>
+				<li class="firstLink">Flights:</li>
+				<li><a href="http://www.via.com/flight-tickets/india">Flights from India</a></li>
+				<li><a href="http://www.via.com/flight-tickets">Cheap Air Tickets</a></li>
+				<li><a href="http://www.via.com/flight-tickets/Bangalore">Flights from Bangalore</a></li>
+				<li><a href="http://www.via.com/flight-tickets/Delhi">Flights from Delhi</a></li>
+				<li><a href="http://www.via.com/flight-tickets/Mumbai">Flights from Mumbai</a></li>
+				<li><a href="http://www.via.com/flight-tickets/Chennai">Flights from Chennai</a></li>
+				<li><a href="http://www.via.com/flight-tickets/Kolkata">Flights from Kolkata</a></li>
+			</ul>
+		</div>
+		<div class="LinkContainer" id="UsefulLinks">
+			<ul>
+				<li class="firstLink">Hotels:</li>
+				<li><a href="http://www.via.com/hotels/india">Hotels in India</a></li>
+				<li><a href="http://www.via.com/hotels/delhi">Hotels in Delhi</a></li>
+				<li><a href="http://www.via.com/hotels/mumbai">Hotels in Mumbai</a></li>
+				<li><a href="http://www.via.com/hotels/kolkata">Hotels in Kolkata</a></li>
+				<li><a href="http://www.via.com/hotels/chennai">Hotels in Chennai</a></li>
+				<li><a href="http://www.via.com/hotels/bangalore">Hotels in Bangalore</a></li>
+				<li><a href="http://www.via.com/hotels/goa">Hotels in Goa</a></li>
+				<li><a href="http://www.via.com/hotels/shimla">Hotels in Shimla</a></li>
+				<li><a href="http://www.via.com/hotels/munnar">Hotels in Munnar</a></li>
+				<li><a href="http://www.via.com/hotels/agra">Hotels in Agra</a></li>
+			</ul>
+		</div>
+		<div class="LinkContainer" id="UsefulLinks">
+			<ul>
+				<li class="firstLink">Buses:</li>
+				<li><a href="http://www.via.com/bus-tickets">Bus Bookings</a></li>
+				<li><a href="http://www.via.com/bus-tickets/mumbai/goa">Mumbai Goa Buses</a></li>
+				<li><a href="http://www.via.com/bus-tickets/bangalore">Bangalore Buses</a></li>
+				<li><a href="http://www.via.com/bus-tickets/chennai/coimbatore">Chennai Coimbatore Buses</a></li>
+				<li><a href="http://www.via.com/bus-tickets/chennai/hyderabad">Chennai Hyderabad Buses</a></li>
+				<li><a href="http://www.via.com/bus-tickets/manali/delhi">Manali Delhi Buses</a></li>
+				<li><a href="http://www.via.com/bus-tickets/delhi">Delhi Buses</a></li>
+			</ul>
+		</div>
+		<div class="LinkContainer" id="UsefulLinks">
+			<ul>
+				<li class="firstLink">About Us:</li>
+				<li><a href="http://www.via.com/go/world/about">About Us</a></li>
+				<li><a href="http://www.via.com/go/world/people">Via Team</a></li>
+				<li><a href="http://www.via.com/go/world/board">Board of Directors</a></li>
+				<li><a href="http://www.via.com/go/world/investors">Our Investors</a></li>
+				<li><a rel="nofollow" href="#" onclick="openPopupWindow('PrivacyPolicy', 'http://www.via.com/static/privacypolicy.html', 600, 600);">Privacy Policy</a></li>
+				<li><a rel="nofollow" href="javascript:void(0);" onclick="openPopupWindow('TermsofUse', 'http://www.via.com/static/viacomterms.html', 600, 600);">Terms of Use</a></li>
+				<li class="lastLink  feedback"><a rel="nofollow" href="javascript:void(0);">Submit Feedback</a></li>
+				<li class="lastLink"><a rel="nofollow" href="http://www.via.com/go/world/contact">Contact us</a></li>				
+			</ul>
+		</div>
+		<div class="LinkContainer" id="UsefulLinks">
+			<ul>
+				<li class="firstLink">Follow Us:</li>
+				<li><a href="http://www.facebook.com/viadotcom" target="_blank">Facebook</a></li>
+				<li><a href="http://twitter.com/viadotcom" target="_blank">Twitter</a></li>
+			</ul>
+		</div>
+   </div>
+
+
+	<div style="display: none;float: left;width: 26.1%;margin-top: 0px;margin-left: 15px;background: #FFF;padding: 0px 10px;text-align: left;border:1px solid #ddd;border-top:none;">
+		<div style="font-weight: bold;font-size: 11.5px;padding: 10px;">Follow us at:</div>
+		<div style="padding: 10px;">
+			<span>
+				<a href="http://www.facebook.com/viadotcom" target="_blank">
+					<img  src='/static/img/v1/facebook.jpg'>
+				</a>	
+			</span>
+			<span>
+				<a href="http://twitter.com/viadotcom" target="_blank">
+					<img  src='/static/img/v1/twitter.jpg'>
+				</a>	
+			</span>
+		</div>
+	</div>
+	
+
+ <div style="clear: both;" ></div>
+
+<div>
+	<table style="width:100%;margin-top:5px;margin-bottom:0px;">
+		<tr>
+			<td class="nrHeaderNavigation">
+				<div class="" style="font-size:11px;color:686969;text-align:center;width:65%;margin: 0 auto;">
+					
+					
+					
+					About Via : Use of this website constitutes acceptance of 
+					<a style="text-decoration: none;" href="javascript:void(0);" onclick="openPopupWindow('PrivacyPolicy', 'http://www.via.com/static/privacypolicy.html', 600, 600);">
+						User Agreement, Security Policy, Privacy Policy
+					</a> <br />and other applicable	
+					<a style="text-decoration: none;" class="viafooterlink" href="/static/viacomterms.html" >
+					<a style="text-decoration: none;" href="javascript:void(0);" onclick="openPopupWindow('TermsofUse', 'http://www.via.com/static/viacomterms.html', 600, 600);">
+						Terms and Conditions . 
+					</a>
+					VIA is trademark of Flightraja Travels Pvt. Ltd.
+					
+				</div>
+			
+			</td>
+		</tr>
+	</table>
+</div>
+ 
+ 
+<style>
+.fotterpartnercon{width:50%;margin: 0px auto;}
+.partnercon{ float:left; width:auto;  padding:0px 0px 0px 0px; font-size:12px; height:68px; font-family:Arial, Helvetica, sans-serif; font-size:11px; color:#6e757b; font-weight:bold;}
+.partnercon2{ float:right; width:120px;  padding:0px 0px 0px 5px; font-size:12px; height:68px; font-family:Arial, Helvetica, sans-serif; font-size:11px; color:#6e757b; font-weight:bold;}
+</style>
+
+<div class="fotterpartnercon">
+	<div class="partnercon2" style="padding-left: 0px;border-left: 1px solid #ddd;">
+		<div style="padding-top: 0px;">
+			<img src="/static/img/viacom/payments.png" alt="" style="padding-left: 5px;">
+		</div>	
+	</div>
+	
+	 
+	
+	<div class="partnercon">
+		<div style="padding-top: 0px;">
+			<img src="/static/img/viacom/memberships.gif" alt="" style="padding-left: 5px; padding-right: 10px;">
+		</div>
+	</div>
+	
+	<div style="clear:both;"></div>
+</div>
+
+</div>
+
+<!-- <div class="copyright">&copy;2008 Flightraja Travels Pvt Ltd</div> -->
+
+<div class="footer_links" style="display:block">
+<!--
+<ul>
+	<li class="first"><a class="topLevelMenuLink" href="http://www.via.com/bdo;jsessionid=70D83240CEC99E007B80C3D88AFEB377.t4?action1=HOME"><span class="inner">Home</span></a></li>
+    <li><a class="topLevelMenuLink" href="http://www.via.com/bdo;jsessionid=70D83240CEC99E007B80C3D88AFEB377.t4?action1=CONT"><span class="inner">Contact us</span></a></li>
+    <li><a class="topLevelMenuLink" href="#" onClick="JS_UTIL.openPopupWindow('FAQ', '/static/faq.html', 770, 560); return false;" style='cursor:pointer;'><span class="inner">FAQs</span></a></li>
+    <li><a class="topLevelMenuLink" href="#" onClick="JS_UTIL.openPopupWindow('Privacy_Policy', '/static/privacy_policy.html', 540, 500); return false;" style='cursor:pointer;'><span class="inner">Privacy Policy</span></a></li>
+    <li><a class="topLevelMenuLink" href="#" onClick="JS_UTIL.openPopupWindow('Terms_of_Use', '/static/terms.html', 540, 500); return false;" style='cursor:pointer;'><span class="inner">Terms of Service</span></a></li>
+</ul>
+-->
+</div>
+<div class="footer_bg_1"></div>
+<div class="footer_bg_2"></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<iframe id="maskIframe" src="javascript:false;"></iframe>
+<div id="maskDiv" style="width:100%!important;opacity:0.7;">&nbsp;</div>
+<div id="waitDiv" style="display:none;">
+  <div class="content" id='waitDivContent' style="width:950px">
+    <div style="text-align:right" id='waitDivCancel'><a  href="#" onclick="WAIT_DIV.hide()" class='cancelSrch'>Cancel Search</a></div>
+	<div style="border-bottom:1px solid #ddd;height:40px;" class="waitDivLogo">
+		<img src="/static/img/hotels/loadingAnimation.gif" />
+	</div>
+	<h1 class="waitHeader" style="display:none">Searching...</h1><div class="waitMsg" id='waitMsg' style="color:#000;font-size:16px;font-weight:normal">&nbsp;</div>
+	
+	
+	<br/>
+	
+	<div class="waitImage">
+		<div style="float:left; margin-right:25px; text-align:right; width:50%;">
+			<a href="http://www.via.com/bdo?action1=BOOK_AIRCARD" target="_blank"><img src="https://images.via.com/static/img/banner/20120218-fixed-price.jpg" height="333"></a>
+		</div>
+		<div style="float:left; margin-left:25px; text-align:left;">
+			<a href="http://www.via.com/mera-trip-mera-price" target="_blank"><img src="https://images.via.com/static/img/banner/20120218-your-price.jpg" height="333"></a>
+		</div>
+		<div class="u_clear"></div>
+	</div>
+	
+  </div>
+</div>
+<div id="msgDiv">
+</div>
+
+
+
+
+<style type="text/css">
+.feedbackCnt{
+	    background: #FFFFFF;
+	    border: 1px solid #DDDDDD;
+	    right: 330px;
+	    padding: 10px 20px 35px 24px;
+	    position: absolute;
+	    top: 100px;
+	    width: 510px;
+	    z-index:2;
+}
+.myFormTbe td{
+	border:none;
+}
+</style>
+<div class='feedbackCnt' style="display: none;">
+	<form class='myFeedbackForm' id="feedback1" action="feedback.jsp" method="post">
+
+	<div style="float: right;cursor: pointer;" class='feedbackCloseBtn'>
+		Close [ X ] 
+	</div>
+	<div style="clear: both;"></div>
+	<div style="font-size: 10px;padding: 5px 18px;">We at Via.com, value your FeedBack. Your FeedBack will be of utmost priority to us. Please don't hesitate to give your value comments. </div><br />
+	<div style="font-size: 17px;font-weight: bold;padding: 5px 18px;color: #FFF;background: #2B3656;"><center>Feedback</center></div><br />
+	<div style="padding-left:18px">
+	<table class='myFormTbe' cellspacing="1" cellpadding="0">
+		<tr><td>Product Type</td><td><select id="select_product">
+                    <option value="domestic_flight" selected>Domestic Flights</option>
+                    <option value="intl_flight">International Flights</option>
+                    <option value="hotel">Hotels</option>
+                    <option value="holiday">Holidays</option>
+                    <option value="rail">Rail</option>
+                    <option value="bus">Bus</option>
+                    <option value="deal">Deals</option>
+                    <option value="membership">Membership</option>
+                    <option value="other">Others</option></td></tr>
+                </select>
+		<tr><td>First Name</td><td><input type="text" id="fname" style="background:white" size="35" class="clearFeedBack"></td></tr>
+		<tr><td>Last Name</td><td><input type="text" id="lname" style="background:white" size="35" class="clearFeedBack"></td></tr>
+		<tr><td>Email ID* </td><td><input type="text" id="email" style="background:white" size="35" class="clearFeedBack"></td></tr>
+		<tr><td>Phone Number</td><td><input id="phnum" type="text" style="background:white" size="35" class="clearFeedBack"></td></tr>
+		<tr><td>FMN Number(optional)</td><td><input type="text" id="fmnnum" style="background:white" size="35" class="clearFeedBack"></td></tr>
+		<tr><td>Subject(Optional)</td><td><input type="text" id="sub" style="background:white" size="35" class="clearFeedBack"></td></tr>
+		<tr><td>Comments/Questions*</td><td><textarea id="comm" rows=10 cols=35 class="clearFeedBack"></textarea></td></tr>	
+	</table>
+	<center><span onclick='submitFeedBack();' class='srchBtnhtl' style="cursor: pointer;background: #2B3656;color: #FFF;font-size: 11px;font-weight: bold;padding: 6px 10px;">Submit</span></center>
+	</form>
+	</div>
+</div>
+<script>
+$jQ(function(){
+	$jQ('.feedback').click(function(){
+		
+		window.scrollTo(0,0);
+		$jQ('.feedbackCnt').show();
+	});
+	$jQ('.feedbackCloseBtn').click(function(){
+		$jQ('.feedbackCnt').hide();
+		clearFeedBackB2c();
+	});
+	
+});
+
+
+function clearFeedBackB2c(){
+	$jQ('.clearFeedBack').val('');
+	$jQ('#select_product').val('domestic_flight');
+}
+
+function submitFeedBack(){	
+				if(validateFeedbackEmail('feedback1','email') == true) {
+					if(validateFeedbackComment('feedback1','comm') == true) {
+						var prod_type = document.forms['feedback1'].elements['select_product'].value;
+						var fname = document.forms['feedback1'].elements['fname'].value;
+						var lname = document.forms['feedback1'].elements['lname'].value;
+						var email = document.forms['feedback1'].elements['email'].value;
+						var phnum = document.forms['feedback1'].elements['phnum'].value;
+						var fmnnum = document.forms['feedback1'].elements['fmnnum'].value;
+						var sub = document.forms['feedback1'].elements['sub'].value;
+						var comm = document.forms['feedback1'].elements['comm'].value;
+						var url = "http://www.via.com/bdo?action1=FDBCK";
+						$jQ.ajax({
+							type : "POST",
+							url : url,
+							data : 'prod_type='+prod_type+'&fname='+fname+'&lname='+lname+'&email='+email+'&phnum='+phnum+'&fmnnum='+fmnnum+'&sub='+sub+'&comm='+comm+'&fromjsp=feedback_viacom' ,
+							success : function(data){
+								if(data == 'true') {
+									$jQ('.feedbackCnt').hide();
+									alert('Thanks for the Feedback. Your Feedback successfully reported.');
+									clearFeedBackB2c();
+								} else {
+									alert('Sending FeedBack failed. Please send it again');
+								}
+							}
+						}); 
+					}
+				}
+}
+
+function validateFName(formid,name) {
+	var Name = document.forms[formid].elements[name].value;
+	if(Name == null || Name == "" || Name.length < 1) {
+		alert('Invalid First Name');
+	      return false;
+	} else {
+		return true;
+	}
+	validateLName('feedback1','lname');
+}
+
+function validateLName(formid,name) {
+	var Name = document.forms[formid].elements[name].value;
+	if(Name == null || Name == "" || Name.length < 1) {
+		alert('Invalid Last Name');
+	      return false;
+	} else {
+		return true;
+	}
+	validateFeedbackEmail('feedback1','email');
+}
+
+function validateFeedbackEmail(formid,email) {
+	   var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+	   var address = document.forms[formid].elements[email].value;
+	   if(reg.test(address) == false) {
+	      alert('Invalid Email Address');
+	      return false;
+	   } else {
+		   return true;
+	   }
+	   //validatePhNum('feedback1','phnum');
+}
+
+function validatePhNum(formid,num) {
+	var Num = document.forms[formid].elements[num].value;
+	if(isNaN(Num) || Num.length > 12 || Num.length < 10 ) {
+		alert('Invalid Phone Number');
+	      return false;
+	} else {
+		return true;
+	}
+	validateFeedbackComment('feedback1','comm'); 
+}
+
+function validateFeedbackComment(formid,comm) {
+	var Comm = document.forms[formid].elements[comm].value;
+	if(Comm.length < 1) {
+		alert('Please enter Comments');
+		return false;
+	} else if(Comm.length > 600) {
+		alert('Comment can only be of maximum 600 characters');
+		return false;
+	} else {
+		return true;
+	}
+	$jQ('.myFeedbackForm').submit();
+}
+	
+</script>
+
+   
+</div>
+<script type="text/javascript">
+function openPopupHdfcOffer(url){
+	window.open (url,"mywindow","menubar=1,resizable=1,width=600,height=600,scrollbars=1");
+}	
+</script>
+
+<div ID="calendarDiv" style="margin-left:165px;position:absolute;z-index:99;visibility:hidden;background-color:white;layer-background-color:white;"></div>
+</body>
+	<script type="text/javascript">
+	
+		var checkedVal ;
+		
+		function search(){
+
+			if(document.getElementById('holDestination').value!=""){
+				document.getElementById("pkgForm").submit();
+			} else{
+				alert('Please select a destination');
+				return false;
+			}
+		}
+		function changePkgType(){
+			var url = "http://www.via.com/bdo?action1=GHRSA";
+			url += "&pkgType="+$jQ("input[name='pkgRadioBtn']:checked").val();
+			url += '&bound=in';
+			getAjxDInfo(url);
+			}
+		
+		var mainJsonDest ;
+		function getAjxDInfo(url){
+			$jQ.ajax({
+				  url: url,
+				  success: function(transport) {
+						var jsonObj = eval(transport);
+						var jsonDest = jsonObj[0];
+						var jsonExCity = jsonObj[1];
+						var selectDest  =  document.getElementById('destination');
+						var selectDestCont = "<option value='-1'>Select</option>";
+						var selectExCityCont = "<option value=''>Select</option>";
+						for(var i=0;i<jsonDest.length;i++){
+							selectDestCont += "<option value='"+jsonDest[i].Dest+"'>"+jsonDest[i].Dest+"</option>";
+						}
+						for(var i=0;i<jsonExCity.length;i++){
+							selectExCityCont += "<option value='"+jsonExCity[i].Excity+"'>"+jsonExCity[i].Excity+"</option>";
+						}
+						
+						$jQ('#destination').empty();
+						$jQ('#destination').html(selectDestCont);
+		
+						$jQ('#excityValue').empty();
+						$jQ('#excityValue').html(selectExCityCont);
+						
+					}
+				});
+		
+		}
+		
+		$jQ(".modSeaDiv").click(function () {
+			var backColor = $jQ('#modSeaDivHead').css('background-color');
+			var whiteColor = "rgb(255, 255, 255)";
+			$jQ(".divoverlay").show();
+			$jQ(".modifyFormHead").show();
+			$jQ(".modifyFormCont").show();
+			$jQ('#destination').val('');
+			$jQ('#duration').val('-1');
+			$jQ('#budget').val('-1');
+			$jQ('#excityValue').val('');
+			$jQ("input[name='pkgRadioBtn']:checked").val('0');
+			
+		});
+		$jQ(".modifyFormClose").click(function (){
+			$jQ(".divoverlay").hide();
+			$jQ(".modifyFormHead").hide();
+			$jQ(".modifyFormCont").hide();
+		});
+		
+		$jQ(".showIncentDiv").click(function (){
+			var status= $jQ(".showIncentiveCont").css('display');
+			if(status=='none'){
+				$jQ(".showIncentDiv").html('<div style="padding:1px 3px 0 2px;float:left;"><img src="/static/img/v1/check.png"></div> Show Commission');
+				$jQ(".showIncentiveCont").css('display','block');
+			}else{
+				$jQ(".showIncentDiv").html('<div style="padding:1px 3px 0 2px;float:left;"><img src="/static/img/v1/clear.png"></div> Show Commission');
+				$jQ(".showIncentiveCont").css('display','none');
+			}
+		});
+
+		$jQ(function(){
+			$jQ('#datePicker').datepicker({
+				dateFormat:'dd/mm/yy',
+				autoSize:false,
+				defaultDate: null,
+				numberOfMonths:1,
+				minDate:new Date(),
+				showOn: "button",
+				buttonImage: "/static/img/icons/calendar.gif",
+				buttonImageOnly: true
+			}); 
+			
+
+			});
+		
+		 
+	</script>
+</html>	

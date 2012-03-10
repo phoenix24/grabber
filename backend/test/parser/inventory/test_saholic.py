@@ -35,19 +35,19 @@ class TestSaholicInventory(unittest.TestCase):
         self.assertEquals(expected, actual)
 
     
-    def test_list_inventory(self):
-        si = SaholicInventory(self.test_data)
-        actual = si.get_inventory(si.get_items())
-
-        expected = [[u'Alcatel  OT-230D', None, None, None, None, u'949', None]]
-        self.assertEquals(expected, actual)
-
-    
     def test_get_item_delivery_days(self):
         si = SaholicInventory(self.test_data)
         actual = si.get_item_delivery_days(si.get_items()[0])
 
         expected = None
+        self.assertEquals(expected, actual)
+
+        
+    def test_get_inventory(self):
+        si = SaholicInventory(self.test_data)
+        actual = si.get_inventory(si.get_items())
+
+        expected = [[u'Alcatel  OT-230D', None, None, None, None, u'949', None]]
         self.assertEquals(expected, actual)
         
 

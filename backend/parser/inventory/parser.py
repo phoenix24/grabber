@@ -3,13 +3,13 @@
 import os
 import sys
 from httplib2 import Http
-from BeautifulSoup import BeautifulSoup as soup
+from BeautifulSoup import BeautifulSoup as bsoup
 
 class Parser(object):
     """ the abstract crawler class!  """
     
     def __init__ (self, content):
-        self.pagesp = soup(content)
+        self.pagesp = bsoup(content)
         self.content = content
         self.inventory = []
 

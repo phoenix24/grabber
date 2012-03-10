@@ -37,25 +37,26 @@ class Parser(object):
 
     def get_item_image(self, item):
         return None
+
+    def get_item_inventory(self, item):
+        inventory = []
+        try:
+            inventory = [
+                self.get_item_name(item),
+                self.get_item_color(item),
+                self.get_item_specifications(item),
+                self.get_item_delivery_days(item),
+                self.get_item_stock_status(item),
+                self.get_item_price(item),
+                self.get_item_image(item),
+                ]
+        except:
+            pass
+        return inventory
     
     def get_inventory(self, items):
         for item in items:
-            try:
-                self.inventory.append([
-                    self.get_item_name(item),
-                    self.get_item_color(item),
-                    self.get_item_specifications(item),
-                    self.get_item_delivery_days(item),
-                    self.get_item_stock_status(item),
-                    self.get_item_price(item),
-                    self.get_item_image(item),
-                    ])
-            except:
-                pass
-
+            self.inventory.append(self.get_item_inventory(item))
         return self.inventory
-    
 
-    def list_inventory(self):
-        return self.get_inventory(self.get_items())
 

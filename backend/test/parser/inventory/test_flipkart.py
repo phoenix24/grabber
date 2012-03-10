@@ -9,7 +9,7 @@ from parser.inventory.flipkart import FlipkartInventory
 class TestFlipkartInventory(unittest.TestCase):
     
     def setUp(self):
-        self.test = file("test/data/inventory/test_20120309_144841_flipkart.html", "r").read()
+        self.test = file("test/data/inventory/test_20120310_055847_flipkart.html", "r").read()
         self.test_data = str(bsoup(self.test).fetch('div', 'fk-srch-item')[0])
 
     def tearDown(self):

@@ -5,7 +5,7 @@ import sys
 from httplib2 import Http
 from BeautifulSoup import BeautifulSoup as bsoup
 
-class Parser(object):
+class BaseParser(object):
     """ the abstract crawler class!  """
     
     def __init__ (self, content):

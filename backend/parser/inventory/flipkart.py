@@ -1,8 +1,8 @@
 #!/usr/bash/env python
 
-from parser import *
+from baseparser import *
 
-class FlipkartInventory(Parser):
+class FlipkartInventory(BaseParser):
     """ flipkart inventory page crawler. """
     
     def __init__ (self, content):

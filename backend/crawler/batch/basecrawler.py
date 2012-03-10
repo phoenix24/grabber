@@ -6,7 +6,7 @@ from httplib2 import Http
 from BeautifulSoup import BeautifulSoup as soup
 
 
-class Crawler(object):
+class BaseCrawler(object):
     """ the abstract crawler class!  """
     
     def __init__ (self, content, url):

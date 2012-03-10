@@ -3,12 +3,14 @@
 unit-tests for the parsers.saholic module.
 """
 import unittest
+from BeautifulSoup import BeautifulSoup as bsoup
 from parser.inventory.saholic import SaholicInventory
 
 class TestSaholicInventory(unittest.TestCase):
     
     def setUp(self):
-        self.test_data = file("test/data/inventory/test_20120309_144841_saholic.html", "r").read()
+        self.test = file("test/data/inventory/test_20120310_055847_saholic.html", "r").read()
+        self.test_data = str(bsoup(self.test).fetch('div', 'productItem')[0])
 
     def tearDown(self):
         self.test_data = None

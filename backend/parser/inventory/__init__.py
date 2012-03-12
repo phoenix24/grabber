@@ -1,5 +1,8 @@
 #!/usr/bin/env python
 
+from saholic import SaholicInventory
+from flipkart import FlipkartInventory
+
 SHOPS = {
     "sulekha"        : {
         "pages" : False,
@@ -40,20 +43,53 @@ SHOPS = {
     "futurebazaar"   : {
         "pages" : True,
         "mobile" : "http://www.futurebazaar.com/mobiles/ch/2459/?page=%s" },
-    "ibazaar"        : { "pages" : True, "mobile" : "" },
-    "taggle"         : { "pages" : True, "mobile" : "" },
-    "buytheprice"    : { "pages" : True, "mobile" : "" },
-    "landmark"       : { "pages" : True, "mobile" : "" },
-    "nbcindia"       : { "pages" : True, "mobile" : "" },
-    "pustak"         : { "pages" : True, "mobile" : "" },
-    "rediff"         : { "pages" : True, "mobile" : "" },
-    "tradus"         : { "pages" : True, "mobile" : "" },
-    "uread"          : { "pages" : True, "mobile" : "" },
-    "friendsofbooks" : { "pages" : True, "mobile" : "" },
-    "crosword"       : { "pages" : True, "mobile" : "" },
-    "coralhub"       : { "pages" : True, "mobile" : "" },
-    "coinjoos"       : { "pages" : True, "mobile" : "" },
-    "cerramatter"    : { "pages" : True, "mobile" : "" },
-    "bookadda"       : { "pages" : True, "mobile" : "" },
-    "a1books"        : { "pages" : True, "mobile" : "" },
+    "ibazaar"        : {
+        "pages" : True,
+        "mobile" : "" },
+    "taggle"         : {
+        "pages" : True,
+        "mobile" : "" },
+    "buytheprice"    : {
+        "pages" : True,
+        "mobile" : "" },
+    "landmark"       : {
+        "pages" : True,
+        "mobile" : "" },
+    "nbcindia"       : {
+        "pages" : True,
+        "mobile" : "" },
+    "pustak"         : {
+        "pages" : True,
+        "mobile" : "" },
+    "rediff"         : {
+        "pages" : True,
+        "mobile" : "" },
+    "tradus"         : {
+        "pages" : True,
+        "mobile" : "" },
+    "uread"          : {
+        "pages" : True,
+        "mobile" : "" },
+    "friendsofbooks" : {
+        "pages" : True,
+        "mobile" : "" },
+    "crosword"       : {
+        "pages" : True,
+        "mobile" : "" },
+    "coralhub"       : {
+        "pages" : True,
+        "mobile" : "" },
+    "coinjoos"       : {
+        "pages" : True,
+        "mobile" : "" },
+    "cerramatter"    : {
+        "pages" : True,
+        "mobile" : "" },
+    "bookadda"       : {
+        "pages" : True,
+        "mobile" : "" },
+    "a1books"        : {
+        "pages" : True,
+        "mobile" : "" },
     }
+

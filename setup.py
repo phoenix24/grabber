@@ -8,3 +8,4 @@ setup(
     install_requires=['flask', 'BeautifulSoup', 'httplib2'],
     packages=['mock_idol']
     )
+

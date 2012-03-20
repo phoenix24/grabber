@@ -16,4 +16,23 @@ class SaholicInventory(BaseParser):
 
     def get_item_name(self, item):
         return (item.fetch('div', 'title')[0].fetch('a')[0].string).strip()
+
     
+class SaholicCrawler(BaseCrawler):
+    """ saholic inventory page crawler. """
+
+    def __init__(self, config, url):
+        super(SaholicCrawler, self).__init__(config, url)
+
+    
+class SaholicGrabber(BaseGrabber):
+    """ saholic page grabber """
+
+    def __init__(self, config):
+        super(SaholicGrabber, self).__init__(config)
+    
+    def grab(self):
+        inventory = self.grab()
+        for index, item in enumerate(inventory):
+            print index, item
+        

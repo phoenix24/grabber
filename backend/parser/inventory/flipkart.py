@@ -52,7 +52,7 @@ class FlipkartGrabber(BaseGrabber):
         super(FlipkartGrabber, self).__init__(config)
     
     def grab(self):
-        inventory = super(FlipkartGrabber, self).grab()
+        inventory = self.grab()
         for index, item in enumerate(inventory):
             print index, item
         

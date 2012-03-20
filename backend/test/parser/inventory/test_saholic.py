@@ -3,8 +3,10 @@
 unit-tests for the parsers.saholic module.
 """
 import unittest
+from mock import Mock
+from httplib2 import Http
 from BeautifulSoup import BeautifulSoup as bsoup
-from parser.inventory.saholic import SaholicInventory
+from parser.inventory.saholic import SaholicInventory, SaholicCrawler, SaholicGrabber
 
 class TestSaholicInventory(unittest.TestCase):
     
@@ -51,5 +53,32 @@ class TestSaholicInventory(unittest.TestCase):
         self.assertEquals(expected, actual)
         
 
+class TestSaholicCrawler(unittest.TestCase):
+            
+    def setUp(self):
+        self.crawler = SaholicCrawler({}, "http://localhost/page")
+
+    def tearDown(self):
+        self.crawler = None
+        
+    def test_crawl_page(self):
+        self.crawler.crawl_page = Mock(return_value="Mock Page!")
+        self.assertEquals("Mock Page!", self.crawler.crawl_page())
+
+        
+class TestSaholicGrabber(unittest.TestCase):
+    
+    def setUp(self):
+        self.test = file("test/data/inventory/test_20120310_055847_saholic.html", "r").read()
+        self.test_data = str(bsoup(self.test).fetch('div', 'productItem')[0])
+
+    def tearDown(self):
+        self.test_data = None
+        
+    def test_get_items(self):
+        fki = SaholicInventory(self.test_data)
+        self.assertEquals(1, len(fki.get_items()))
+
+        
 if '__main__' == __name__:
     unittest.main()

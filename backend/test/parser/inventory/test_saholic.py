@@ -46,9 +46,7 @@ class TestSaholicInventory(unittest.TestCase):
 
         
     def test_get_inventory(self):
-        si = SaholicInventory(self.test_data)
-        actual = si.get_inventory(si.get_items())
-
+        actual = SaholicInventory(self.test_data).get_inventory()
         expected = [[u'Alcatel  OT-230D', None, None, None, None, u'949', None]]
         self.assertEquals(expected, actual)
         

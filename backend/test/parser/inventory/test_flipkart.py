@@ -3,8 +3,13 @@
 unit-tests for the parsers.flipkart module.
 """
 import unittest
+from mock import Mock
+from httplib2 import Http
 from BeautifulSoup import BeautifulSoup as bsoup
+from parser.inventory.flipkart import FlipkartCrawler
+from parser.inventory.flipkart import FlipkartGrabber
 from parser.inventory.flipkart import FlipkartInventory
+
 
 class TestFlipkartInventory(unittest.TestCase):
     
@@ -79,7 +84,7 @@ class TestFlipkartInventory(unittest.TestCase):
     
     def test_get_inventory(self):
         fki = FlipkartInventory(self.test_data)
-        actual = fki.get_inventory(fki.get_items())
+        actual = fki.get_inventory()
 
         expected = [[u'Samsung Galaxy Y S5360',
                      u'Grey',
@@ -92,5 +97,37 @@ class TestFlipkartInventory(unittest.TestCase):
         self.assertEquals(expected, actual)
             
 
+        
+class TestFlipkartCrawler(unittest.TestCase):
+            
+    def setUp(self):
+        self.crawler = FlipkartCrawler({}, "http://localhost/page")
+
+    def tearDown(self):
+        self.crawler = None
+        
+    def test_crawl_page(self):
+        self.crawler.crawl_page = Mock(return_value="Mock Page!")
+        self.assertEquals("Mock Page!", self.crawler.crawl_page())
+
+        
+
+class TestFlipkartGrabber(unittest.TestCase):
+    
+    def setUp(self):
+        self.test = file("test/data/inventory/test_20120310_055847_flipkart.html", "r").read()
+        self.test_data = str(bsoup(self.test).fetch('div', 'fk-srch-item')[0])
+
+    def tearDown(self):
+        self.test_data = None
+        
+        
+    def test_get_items(self):
+        fki = FlipkartInventory(self.test_data)
+        self.assertEquals(1, len(fki.get_items()))
+
+
+
+        
 if '__main__' == __name__:
     unittest.main()

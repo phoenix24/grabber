@@ -36,3 +36,23 @@ class FlipkartInventory(BaseParser):
     def get_item_image(self, item):
         return item.fetch('div', 'lastUnit')[0].fetch('img')[0]['src']
     
+
+
+class FlipkartCrawler(BaseCrawler):
+    """ flipkart inventory page crawler. """
+
+    def __init__(self, config, url):
+        super(FlipkartCrawler, self).__init__(config, url)
+
+    
+class FlipkartGrabber(BaseGrabber):
+    """ flipkart page grabber """
+
+    def __init__(self, config):
+        super(FlipkartGrabber, self).__init__(config)
+    
+    def grab(self):
+        inventory = super(FlipkartGrabber, self).grab()
+        for index, item in enumerate(inventory):
+            print index, item
+        

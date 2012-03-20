@@ -6,7 +6,7 @@ from httplib2 import Http
 from BeautifulSoup import BeautifulSoup as bsoup
 
 class BaseParser(object):
-    """ the abstract crawler class!  """
+    """ the abstract parser class!  """
     
     def __init__ (self, content):
         self.pagesp = bsoup(content)
@@ -54,9 +54,49 @@ class BaseParser(object):
             pass
         return inventory
     
-    def get_inventory(self, items):
-        for item in items:
+    def get_inventory(self):
+        for item in self.get_items():
             self.inventory.append(self.get_item_inventory(item))
         return self.inventory
 
+
+
+class BaseCrawler(object):
+    """ the abstract crawler class!  """
+    
+    def __init__ (self, config, url):
+        self.config = config
+        self.handle = Http(".cache")
+
+        self.url = url
+        self.resp = None
+        self.content = None
+        
+    def crawl_page(self):
+        self.resp, self.content = self.handle.request( self.url )
+        return self.content
+        
+
+class BaseGrabber(object):
+    """
+    the abstract grabber class!
+    # all the book-keeping needs to be done here.
+    ## todo : store crawled urls into the db.
+    ## todo : store crawled pages into the db.
+    ## todo : store extracted inventory into the db.
+    """
+
+    def __init__(self, config):
+        self.config = config
+        self.parser = self.config['parser']
+        self.crawler = self.config['crawler']
+                
+        
+    def grab(self):
+
+        url = self.config['url']
+        crawler = self.crawler(self.config, url)
+        parser = self.parser( crawler.crawl_page() )
+        
+        return parser.get_inventory()
 

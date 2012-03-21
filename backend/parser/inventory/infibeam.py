@@ -15,4 +15,7 @@ class InfibeamInventory(BaseParser):
         return (item.fetch('span', 'title')[0].string).strip()
 
     def get_item_image(self, item):
-        return item.fetch('div', 'productImg')[0].fetch('img')[0]['src']
+        return item.fetch('a')[0].fetch('img')[0]['src']
+
+    def get_item_price(self, item):
+        return str(item.fetch('span', 'normal')[0].string.replace(",", "")).strip()

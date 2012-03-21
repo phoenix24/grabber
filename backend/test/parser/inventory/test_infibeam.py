@@ -24,19 +24,12 @@ class TestInfibeamInventory(unittest.TestCase):
         self.assertEquals(1, len(ibi.get_items()))
 
 
-    # def test_get_item_specifications(self):
-    #     ibi = InfibeamInventory(self.test_data)
-    #     actual = ibi.get_item_specifications(ibi.get_items()[0])
+    def test_get_item_price(self):
+        ibi = InfibeamInventory(self.test_data)
+        actual = ibi.get_item_price(ibi.get_items()[0])
 
-    #     expected = u'Android v2.3 OS, 2 MP Primary Camera, 3-inch Touchscreen, FM Radio'
-    #     self.assertEquals(expected, actual)
-
-    # def test_get_item_price(self):
-    #     ibi = InfibeamInventory(self.test_data)
-    #     actual = ibi.get_item_price(ibi.get_items()[0])
-
-    #     expected = '7650'
-    #     self.assertEquals(expected, actual)
+        expected = '25767'
+        self.assertEquals(expected, actual)
         
         
     def test_get_item_name(self):
@@ -51,23 +44,22 @@ class TestInfibeamInventory(unittest.TestCase):
         ibi = InfibeamInventory(self.test_data)
         actual = ibi.get_item_image(ibi.get_items()[0])
 
-        expected = u'http://img1.flixcart.com//image/mobile/4/4/4/samsung-galaxy-y-s5360-125x125-imad2pzjx3uq8paz.jpeg'
+        expected = u'http://cdn-img-a.infibeam.net/img/2ffd0b46/80/22/p-e-m-sony-ericsson-xperiax2-front-1.wm.jpg?op_sharpen=1&wid=120&hei=140'
         self.assertEquals(expected, actual)
 
     
-    # def test_get_inventory(self):
-    #     ibi = InfibeamInventory(self.test_data)
-    #     actual = ibi.get_inventory(ibi.get_items())
+    def test_get_inventory(self):
+        actual = InfibeamInventory(self.test_data).get_inventory()
 
-    #     expected = [[u'Samsung Galaxy Y S5360',
-    #                  u'Grey',
-    #                  u'Android v2.3 OS, 2 MP Primary Camera, 3-inch Touchscreen, FM Radio',
-    #                  u'2-4 business days. Free Home Delivery.',
-    #                  u'In Stock.',
-    #                  u'7650',
-    #                  u'http://img1.flixcart.com//image/mobile/4/4/4/samsung-galaxy-y-s5360-125x125-imad2pzjx3uq8paz.jpeg']
-    #                 ]
-    #     self.assertEquals(expected, actual)
+        expected = [[u'Sony Ericsson XPERIA X2 (Black)',
+                     None,
+                     None,
+                     None,
+                     None,
+                     u'25767',
+                     u'http://cdn-img-a.infibeam.net/img/2ffd0b46/80/22/p-e-m-sony-ericsson-xperiax2-front-1.wm.jpg?op_sharpen=1&wid=120&hei=140']
+                    ]
+        self.assertEquals(expected, actual)
             
 
 if '__main__' == __name__:

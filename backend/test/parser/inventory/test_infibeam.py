@@ -3,8 +3,10 @@
 unit-tests for the parsers.flipkart module.
 """
 import unittest
+from mock import Mock
+from httplib2 import Http
 from BeautifulSoup import BeautifulSoup as bsoup
-from parser.inventory.infibeam import InfibeamInventory
+from parser.inventory.infibeam import InfibeamInventory, InfibeamCrawler, InfibeamGrabber
 
 class TestInfibeamInventory(unittest.TestCase):
     
@@ -61,6 +63,37 @@ class TestInfibeamInventory(unittest.TestCase):
                     ]
         self.assertEquals(expected, actual)
             
+
+class TestInfibeamCrawler(unittest.TestCase):
+            
+    def setUp(self):
+        self.crawler = InfibeamCrawler({}, "http://localhost/page")
+
+    def tearDown(self):
+        self.crawler = None
+        
+    def test_crawl_page(self):
+        self.crawler.crawl_page = Mock(return_value="Mock Page!")
+        self.assertEquals("Mock Page!", self.crawler.crawl_page())
+
+        
+class TestInfibeamGrabber(unittest.TestCase):
+    
+    def setUp(self):
+        self.test = file("test/data/inventory/test_20120310_055847_infibeam.html", "r").read()
+        self.test_data = str(bsoup(self.test).fetch('ul', 'srch_result portrait')[0].fetch('li')[0])
+
+        #monkey patching test-data to get the correct minimal test-data 
+        self.test_data = str("<ul class='srch_result portrait'>" +  self.test_data + "</ul>")
+
+    def tearDown(self):
+        self.test_data = None
+        
+    def test_get_items(self):
+        ibi = InfibeamInventory(self.test_data)
+        self.assertEquals(1, len(ibi.get_items()))
+
+        
 
 if '__main__' == __name__:
     unittest.main()

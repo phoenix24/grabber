@@ -19,3 +19,24 @@ class InfibeamInventory(BaseParser):
 
     def get_item_price(self, item):
         return str(item.fetch('span', 'normal')[0].string.replace(",", "")).strip()
+
+    
+class InfibeamCrawler(BaseCrawler):
+    """ infibeam inventory page crawler. """
+
+    def __init__(self, config, url):
+        super(InfibeamCrawler, self).__init__(config, url)
+
+    
+class InfibeamGrabber(BaseGrabber):
+    """ infibeam page grabber """
+
+    def __init__(self, config):
+        super(InfibeamGrabber, self).__init__(config)
+    
+    def grab(self):
+        inventory = self.grab()
+        for index, item in enumerate(inventory):
+            print index, item
+        
+    

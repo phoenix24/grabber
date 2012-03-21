@@ -47,10 +47,25 @@ class TestSaholicInventory(unittest.TestCase):
         self.assertEquals(expected, actual)
 
         
+    def test_get_item_image(self):
+        si = SaholicInventory(self.test_data)
+        actual = si.get_item_image(si.get_items()[0])
+
+        expected = u"http://static2.saholic.com/images/media/1001720/alcatel-ot-230d-icon-1313564847734.jpg"
+        self.assertEquals(expected, actual)
+
+        
     def test_get_inventory(self):
         actual = SaholicInventory(self.test_data).get_inventory()
-        expected = [[u'Alcatel  OT-230D', None, None, None, None, u'949', None]]
+        expected = [[u'Alcatel  OT-230D',
+                     None,
+                     None,
+                     None,
+                     None,
+                     u'949',
+                     u"http://static2.saholic.com/images/media/1001720/alcatel-ot-230d-icon-1313564847734.jpg"]]
         self.assertEquals(expected, actual)
+
         
 
 class TestSaholicCrawler(unittest.TestCase):

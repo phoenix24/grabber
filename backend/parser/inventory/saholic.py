@@ -17,6 +17,8 @@ class SaholicInventory(BaseParser):
     def get_item_name(self, item):
         return (item.fetch('div', 'title')[0].fetch('a')[0].string).strip()
 
+    def get_item_image(self, item):
+        return item.fetch('div', 'productImg')[0].fetch('img')[0]['src']
     
 class SaholicCrawler(BaseCrawler):
     """ saholic inventory page crawler. """

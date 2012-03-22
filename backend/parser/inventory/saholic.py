@@ -1,6 +1,6 @@
 #!/usr/bash/env python
 
-from parser.baseparser import *
+from backend.parser.baseparser import *
 
 class SaholicInventory(BaseParser):
     """ saholic inventory page. """
@@ -34,7 +34,7 @@ class SaholicGrabber(BaseGrabber):
         super(SaholicGrabber, self).__init__(config)
     
     def grab(self):
-        inventory = self.grab()
+        inventory = super(FlipkartGrabber, self).grab()
         for index, item in enumerate(inventory):
             print index, item
         

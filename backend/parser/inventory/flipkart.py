@@ -1,6 +1,6 @@
 #!/usr/bash/env python
 
-from parser.baseparser import *
+from backend.parser.baseparser import *
 
 class FlipkartInventory(BaseParser):
     """ flipkart inventory page crawler. """
@@ -52,7 +52,7 @@ class FlipkartGrabber(BaseGrabber):
         super(FlipkartGrabber, self).__init__(config)
     
     def grab(self):
-        inventory = self.grab()
+        inventory = super(FlipkartGrabber, self).grab()
         for index, item in enumerate(inventory):
             print index, item
         

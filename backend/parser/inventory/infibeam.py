@@ -1,6 +1,6 @@
-#!/usr/bash/env python
+#!/usr/bin/env python
 
-from parser.baseparser import *
+from backend.parser.baseparser import *
 
 class InfibeamInventory(BaseParser):
     """ infibeam inventory page crawler. """

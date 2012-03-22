@@ -6,12 +6,12 @@ import unittest
 from mock import Mock
 from httplib2 import Http
 from BeautifulSoup import BeautifulSoup as bsoup
-from parser.inventory.saholic import SaholicInventory, SaholicCrawler, SaholicGrabber
+from backend.parser.inventory.saholic import SaholicInventory, SaholicCrawler, SaholicGrabber
 
 class TestSaholicInventory(unittest.TestCase):
     
     def setUp(self):
-        self.test = file("test/data/inventory/test_20120310_055847_saholic.html", "r").read()
+        self.test = file("backend/test/data/inventory/test_20120310_055847_saholic.html", "r").read()
         self.test_data = str(bsoup(self.test).fetch('div', 'productItem')[0])
 
     def tearDown(self):
@@ -84,7 +84,7 @@ class TestSaholicCrawler(unittest.TestCase):
 class TestSaholicGrabber(unittest.TestCase):
     
     def setUp(self):
-        self.test = file("test/data/inventory/test_20120310_055847_saholic.html", "r").read()
+        self.test = file("backend/test/data/inventory/test_20120310_055847_saholic.html", "r").read()
         self.test_data = str(bsoup(self.test).fetch('div', 'productItem')[0])
 
     def tearDown(self):

@@ -6,12 +6,12 @@ import unittest
 from mock import Mock
 from httplib2 import Http
 from BeautifulSoup import BeautifulSoup as bsoup
-from parser.inventory.infibeam import InfibeamInventory, InfibeamCrawler, InfibeamGrabber
+from backend.parser.inventory.infibeam import InfibeamInventory, InfibeamCrawler, InfibeamGrabber
 
 class TestInfibeamInventory(unittest.TestCase):
     
     def setUp(self):
-        self.test = file("test/data/inventory/test_20120310_055847_infibeam.html", "r").read()
+        self.test = file("backend/test/data/inventory/test_20120310_055847_infibeam.html", "r").read()
         self.test_data = str(bsoup(self.test).fetch('ul', 'srch_result portrait')[0].fetch('li')[0])
 
         #monkey patching test-data to get the correct minimal test-data 
@@ -80,7 +80,7 @@ class TestInfibeamCrawler(unittest.TestCase):
 class TestInfibeamGrabber(unittest.TestCase):
     
     def setUp(self):
-        self.test = file("test/data/inventory/test_20120310_055847_infibeam.html", "r").read()
+        self.test = file("backend/test/data/inventory/test_20120310_055847_infibeam.html", "r").read()
         self.test_data = str(bsoup(self.test).fetch('ul', 'srch_result portrait')[0].fetch('li')[0])
 
         #monkey patching test-data to get the correct minimal test-data 

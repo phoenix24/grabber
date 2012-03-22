@@ -6,15 +6,13 @@ import unittest
 from mock import Mock
 from httplib2 import Http
 from BeautifulSoup import BeautifulSoup as bsoup
-from parser.inventory.flipkart import FlipkartCrawler
-from parser.inventory.flipkart import FlipkartGrabber
-from parser.inventory.flipkart import FlipkartInventory
+from backend.parser.inventory.flipkart import FlipkartCrawler, FlipkartGrabber, FlipkartInventory
 
 
 class TestFlipkartInventory(unittest.TestCase):
     
     def setUp(self):
-        self.test = file("test/data/inventory/test_20120310_055847_flipkart.html", "r").read()
+        self.test = file("backend/test/data/inventory/test_20120310_055847_flipkart.html", "r").read()
         self.test_data = str(bsoup(self.test).fetch('div', 'fk-srch-item')[0])
 
     def tearDown(self):
@@ -115,7 +113,7 @@ class TestFlipkartCrawler(unittest.TestCase):
 class TestFlipkartGrabber(unittest.TestCase):
     
     def setUp(self):
-        self.test = file("test/data/inventory/test_20120310_055847_flipkart.html", "r").read()
+        self.test = file("backend/test/data/inventory/test_20120310_055847_flipkart.html", "r").read()
         self.test_data = str(bsoup(self.test).fetch('div', 'fk-srch-item')[0])
 
     def tearDown(self):

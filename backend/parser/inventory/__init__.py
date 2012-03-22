@@ -1,8 +1,5 @@
 #!/usr/bin/env python
 
-from saholic import SaholicInventory
-from flipkart import FlipkartInventory
-
 SHOPS = {
     "sulekha"        : {
         "pages" : False,

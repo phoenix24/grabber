@@ -1,6 +1,6 @@
 #!/usr/bash/env python
 
-from baseparser import *
+from parser.baseparser import *
 
 class SaholicInventory(BaseParser):
     """ saholic inventory page. """

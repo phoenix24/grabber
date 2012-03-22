@@ -35,8 +35,5 @@ class InfibeamGrabber(BaseGrabber):
         super(InfibeamGrabber, self).__init__(config)
     
     def grab(self):
-        inventory = self.grab()
-        for index, item in enumerate(inventory):
-            print index, item
-        
+        return super(InfibeamGrabber, self).grab()
     

@@ -3,7 +3,7 @@
 unit-tests for the parsers.flipkart module.
 """
 import unittest
-from mock import Mock
+from mock import Mock, patch
 from httplib2 import Http
 from BeautifulSoup import BeautifulSoup as bsoup
 from backend.parser.inventory.infibeam import InfibeamInventory, InfibeamCrawler, InfibeamGrabber
@@ -79,21 +79,28 @@ class TestInfibeamCrawler(unittest.TestCase):
         
 class TestInfibeamGrabber(unittest.TestCase):
     
-    def setUp(self):
-        self.test = file("backend/test/data/inventory/test_20120310_055847_infibeam.html", "r").read()
-        self.test_data = str(bsoup(self.test).fetch('ul', 'srch_result portrait')[0].fetch('li')[0])
+    @staticmethod
+    def FakeResponse(a):
+        test = file("backend/test/data/inventory/test_20120310_055847_infibeam.html", "r").read()
+        test_data = str(bsoup(test).fetch('ul', 'srch_result portrait')[0].fetch('li')[0])
 
         #monkey patching test-data to get the correct minimal test-data 
-        self.test_data = str("<ul class='srch_result portrait'>" +  self.test_data + "</ul>")
-
-    def tearDown(self):
-        self.test_data = None
-        
-    def test_get_items(self):
-        ibi = InfibeamInventory(self.test_data)
-        self.assertEquals(1, len(ibi.get_items()))
+        test_data = str("<ul class='srch_result portrait'>" + test_data + "</ul>")
+        return '200 OK', test_data
 
         
+    @patch.object(Http, 'request', FakeResponse)
+    def test_inventory_grab(self):
+        # setup the crawler.
+        igrabber = InfibeamGrabber({
+                "url" : "http://localhost/page",
+                "parser" : InfibeamInventory,
+                "crawler" : InfibeamCrawler
+                })
+
+        inventory = igrabber.grab()
+        self.assertEquals(1, len(inventory))
+
 
 if '__main__' == __name__:
     unittest.main()

@@ -3,7 +3,7 @@
 unit-tests for the parsers.saholic module.
 """
 import unittest
-from mock import Mock
+from mock import Mock, patch
 from httplib2 import Http
 from BeautifulSoup import BeautifulSoup as bsoup
 from backend.parser.inventory.saholic import SaholicInventory, SaholicCrawler, SaholicGrabber
@@ -83,17 +83,26 @@ class TestSaholicCrawler(unittest.TestCase):
         
 class TestSaholicGrabber(unittest.TestCase):
     
-    def setUp(self):
-        self.test = file("backend/test/data/inventory/test_20120310_055847_saholic.html", "r").read()
-        self.test_data = str(bsoup(self.test).fetch('div', 'productItem')[0])
+    @staticmethod
+    def FakeResponse(a):
+        test = file("backend/test/data/inventory/test_20120310_055847_saholic.html", "r").read()
+        test_data = str(bsoup(test).fetch('div', 'productItem')[0])
 
-    def tearDown(self):
-        self.test_data = None
+        return '200 OK', test_data
+
         
-    def test_get_items(self):
-        fki = SaholicInventory(self.test_data)
-        self.assertEquals(1, len(fki.get_items()))
+    @patch.object(Http, 'request', FakeResponse)
+    def test_inventory_grab(self):
 
+        grabber = SaholicGrabber({
+                "url" : "http://localhost/page",
+                "parser" : SaholicInventory,
+                "crawler" : SaholicCrawler
+                })
+
+        inventory = grabber.grab()
+        self.assertEquals(1, len(inventory))
+        
         
 if '__main__' == __name__:
     unittest.main()

@@ -91,14 +91,14 @@ class TestInfibeamGrabber(unittest.TestCase):
         
     @patch.object(Http, 'request', FakeResponse)
     def test_inventory_grab(self):
-        # setup the crawler.
-        igrabber = InfibeamGrabber({
+
+        grabber = InfibeamGrabber({
                 "url" : "http://localhost/page",
                 "parser" : InfibeamInventory,
                 "crawler" : InfibeamCrawler
                 })
 
-        inventory = igrabber.grab()
+        inventory = grabber.grab()
         self.assertEquals(1, len(inventory))
 
 

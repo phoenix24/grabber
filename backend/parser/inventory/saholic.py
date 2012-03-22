@@ -34,7 +34,5 @@ class SaholicGrabber(BaseGrabber):
         super(SaholicGrabber, self).__init__(config)
     
     def grab(self):
-        inventory = super(FlipkartGrabber, self).grab()
-        for index, item in enumerate(inventory):
-            print index, item
+        return super(SaholicGrabber, self).grab()
         

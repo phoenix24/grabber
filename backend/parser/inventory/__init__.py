@@ -9,7 +9,7 @@ SHOPS = {
         "mobile" : "http://adexmart.com/16-mobile-phones?p=%s" },
     "infibeam"       : {
         "pages" : True,
-        "mobile" : "http://www.infibeam.com/Mobiles/Search_ajax.action?store=Mobiles&page=1" },
+        "mobile" : "http://www.infibeam.com/Mobiles/Search_ajax.action?store=Mobiles&page=%s" },
     "indiaplaza"     : {
         "pages" : False,
         "mobile" : "http://www.indiaplaza.com/mobiles/" },

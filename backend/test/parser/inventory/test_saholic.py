@@ -35,7 +35,10 @@ class TestSaholicInventory(unittest.TestCase):
         
         
     def tearDown(self):
+        self.item = None
+        self.test = None
         self.test_data = None
+        self.inventory = None
         
         
     def test_get_items(self):

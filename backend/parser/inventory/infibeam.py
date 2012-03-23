@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 
-from backend.parser.baseparser import *
+from backend.parser.inventory.baseinventory import *
 
-class InfibeamInventory(BaseParser):
+class InfibeamInventory(BaseInventory):
     """ infibeam inventory page crawler. """
 
     def __init__(self, content):

@@ -13,90 +13,81 @@ from backend.parser.inventory.infibeam import InfibeamInventory, InfibeamCrawler
 
 class TestInfibeamInventory(unittest.TestCase):
     
-    def setUp(self):
-        attr = attribute()
-        
+    def setUp(self):        
         self.test = file("backend/test/data/inventory/test_20120310_055847_infibeam.html", "r").read()
         self.test_data = str(bsoup(self.test).fetch('ul', 'srch_result portrait')[0].fetch('li')[0])
 
         #monkey patching test-data to get the correct minimal test-data 
         self.test_data = str("<ul class='srch_result portrait'>" +  self.test_data + "</ul>")
 
+        #inventory object.
+        self.inventory = InfibeamInventory(self.test_data)
+
         #inventory item to be tested against.
+        self.attr = attribute()
         self.item = {
-            attr.id    : md5( 'IBEAM_Sony Ericsson XPERIA X2 (Black)' ).hexdigest(),
-            attr.url   : "http://infibeam.com/Mobiles/i-Sony-Ericsson-XPERIA-X2-Slider/P-E-M-Sony-Ericsson-XPERIAX2.html?id=Black",
-            attr.name  : u'Sony Ericsson XPERIA X2 (Black)',
-            attr.color : None,
-            attr.specs : None,
-            attr.stock : None,
-            attr.brand : None,
-            attr.price : u'25767',
-            attr.source: u'IBEAM',
-            attr.delivery : None,
-            attr.image : u'http://cdn-img-a.infibeam.net/img/2ffd0b46/80/22/p-e-m-sony-ericsson-xperiax2-front-1.wm.jpg?op_sharpen=1&wid=120&hei=140'}
+            self.attr.id    : md5( 'IBEAM_Sony Ericsson XPERIA X2 (Black)' ).hexdigest(),
+            self.attr.url   : "http://infibeam.com/Mobiles/i-Sony-Ericsson-XPERIA-X2-Slider/P-E-M-Sony-Ericsson-XPERIAX2.html?id=Black",
+            self.attr.name  : u'Sony Ericsson XPERIA X2 (Black)',
+            self.attr.color : None,
+            self.attr.specs : None,
+            self.attr.stock : None,
+            self.attr.brand : None,
+            self.attr.price : u'25767',
+            self.attr.source: u'IBEAM',
+            self.attr.delivery : None,
+            self.attr.image : u'http://cdn-img-a.infibeam.net/img/2ffd0b46/80/22/p-e-m-sony-ericsson-xperiax2-front-1.wm.jpg?op_sharpen=1&wid=120&hei=140'}
         
 
     def tearDown(self):
+        self.item = None
+        self.test = None
         self.test_data = None
+        self.inventory = None
         
         
     def test_get_items(self):
-        ibi = InfibeamInventory(self.test_data)
-        self.assertEquals(1, len(ibi.get_items()))
+        self.assertEquals(1, len(self.inventory.get_items()))
 
 
     def test_get_item_price(self):
-        ibi = InfibeamInventory(self.test_data)
-        actual = ibi.get_item_price(ibi.get_items()[0])
-
-        expected = self.item['price']
+        actual = self.inventory.get_item_price(self.inventory.get_items()[0])
+        expected = self.item[ self.attr.price ]
         self.assertEquals(expected, actual)
         
         
     def test_get_item_name(self):
-        ibi = InfibeamInventory(self.test_data)
-        actual = ibi.get_item_name(ibi.get_items()[0])
-
-        expected = self.item['name']
+        actual = self.inventory.get_item_name(self.inventory.get_items()[0])
+        expected = self.item[ self.attr.name ]
         self.assertEquals(expected, actual)
         
 
     def test_get_item_image(self):
-        ibi = InfibeamInventory(self.test_data)
-        actual = ibi.get_item_image(ibi.get_items()[0])
-
-        expected = self.item['image']
+        actual = self.inventory.get_item_image(self.inventory.get_items()[0])
+        expected = self.item[ self.attr.image ]
         self.assertEquals(expected, actual)
 
 
     def test_get_item_id(self):
-        ibi = InfibeamInventory(self.test_data)
-        actual = ibi.get_item_id(ibi.get_items()[0])
-
-        expected = self.item['_id']
+        actual = self.inventory.get_item_id(self.inventory.get_items()[0])
+        expected = self.item[ self.attr.id ]
         self.assertEquals(expected, actual)
 
         
     def test_get_item_source(self):
-        ibi = InfibeamInventory(self.test_data)
-        actual = ibi.get_item_source()
-
-        expected = self.item['source']
+        actual = self.inventory.get_item_source()
+        expected = self.item[ self.attr.source ]
         self.assertEquals(expected, actual)
 
 
     def test_get_item_url(self):
-        ibi = InfibeamInventory(self.test_data)
-        actual = ibi.get_item_url(ibi.get_items()[0])
-
-        expected = self.item['url']
+        actual = self.inventory.get_item_url(self.inventory.get_items()[0])
+        expected = self.item[ self.attr.url ]
         self.assertEquals(expected, actual)
         
         
     def test_get_inventory(self):
         actual = InfibeamInventory(self.test_data).get_inventory()
-
         expected = [ self.item ]
         self.assertEquals(expected, actual)
             

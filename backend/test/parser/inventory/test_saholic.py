@@ -16,77 +16,71 @@ class TestSaholicInventory(unittest.TestCase):
     def setUp(self):
         self.test = file("backend/test/data/inventory/test_20120310_055847_saholic.html", "r").read()
         self.test_data = str(bsoup(self.test).fetch('div', 'productItem')[0])
+        self.inventory = SaholicInventory(self.test_data)
 
-        attr = attribute()
+        self.attr = attribute()
         self.item = {
-            attr.name  : u'Alcatel  OT-230D',
-            attr.id    : md5( 'SHOLIC_Alcatel  OT-230D' ).hexdigest(),
-            attr.url   : u'http://saholic.com/mobile-phones/alcatel-ot-230d-1001720',
-            attr.specs : None,
-            attr.color : None,
-            attr.brand : None,
-            attr.stock : None,
-            attr.source: u'SHOLIC',
-            attr.price : u'949',
-            attr.image : u"http://static2.saholic.com/images/media/1001720/alcatel-ot-230d-icon-1313564847734.jpg",
-            attr.delivery : None,
+            self.attr.name  : u'Alcatel  OT-230D',
+            self.attr.id    : md5( 'SHOLIC_Alcatel  OT-230D' ).hexdigest(),
+            self.attr.url   : u'http://saholic.com/mobile-phones/alcatel-ot-230d-1001720',
+            self.attr.specs : None,
+            self.attr.color : None,
+            self.attr.brand : None,
+            self.attr.stock : None,
+            self.attr.source: u'SHOLIC',
+            self.attr.price : u'949',
+            self.attr.image : u"http://static2.saholic.com/images/media/1001720/alcatel-ot-230d-icon-1313564847734.jpg",
+            self.attr.delivery : None
             }
-
+        
         
     def tearDown(self):
         self.test_data = None
         
         
     def test_get_items(self):
-        si = SaholicInventory(self.test_data)
-        self.assertEquals(1, len(si.get_items()))
+        self.assertEquals(1, len(self.inventory.get_items()))
 
 
     def test_get_item_price(self):
-        si = SaholicInventory(self.test_data)
-        actual = si.get_item_price(si.get_items()[0])
-
-        expected = self.item['price']
+        actual = self.inventory.get_item_price(self.inventory.get_items()[0])
+        expected = self.item[ self.attr.price ]
         self.assertEquals(expected, actual)
         
         
     def test_get_item_name(self):
-        si = SaholicInventory(self.test_data)
-        actual = si.get_item_name(si.get_items()[0])
-
-        expected = self.item['name']
+        actual = self.inventory.get_item_name(self.inventory.get_items()[0])
+        expected = self.item[ self.attr.name ]
         self.assertEquals(expected, actual)
 
     
     def test_get_item_delivery_days(self):
-        si = SaholicInventory(self.test_data)
-        actual = si.get_item_delivery_days(si.get_items()[0])
-
-        expected = self.item['delivery']
+        actual = self.inventory.get_item_delivery_days(self.inventory.get_items()[0])
+        expected = self.item[ self.attr.delivery ]
         self.assertEquals(expected, actual)
 
         
     def test_get_item_image(self):
-        si = SaholicInventory(self.test_data)
-        actual = si.get_item_image(si.get_items()[0])
-
-        expected = self.item['image']
+        actual = self.inventory.get_item_image(self.inventory.get_items()[0])
+        expected = self.item[ self.attr.image ]
         self.assertEquals(expected, actual)
 
         
     def test_get_item_url(self):
-        si = SaholicInventory(self.test_data)
-        actual = si.get_item_url(si.get_items()[0])
-
-        expected = self.item['url']
+        actual = self.inventory.get_item_url(self.inventory.get_items()[0])
+        expected = self.item[ self.attr.url ]
         self.assertEquals(expected, actual)
 
 
     def test_get_item_source(self):
-        si = SaholicInventory(self.test_data)
-        actual = si.get_item_source()
+        actual = self.inventory.get_item_source()
+        expected = self.item[ self.attr.source ]
+        self.assertEquals(expected, actual)
 
-        expected = self.item['source']
+
+    def test_get_item_id(self):
+        actual = self.inventory.get_item_id(self.inventory.get_items()[0])
+        expected = self.item[ self.attr.id ]
         self.assertEquals(expected, actual)
 
         
@@ -94,7 +88,6 @@ class TestSaholicInventory(unittest.TestCase):
         actual = SaholicInventory(self.test_data).get_inventory()
         expected = [ self.item ]
         self.assertEquals(expected, actual)
-
         
 
 class TestSaholicCrawler(unittest.TestCase):

@@ -46,3 +46,12 @@ List of Websites to crawl from.
 23. cerramatter       :
 24. bookadda          :
 25. a1books           :
+
+
+-- refactor tests.
+-- url prefix into settings.
+-- source into settings.
+-- source, as part of constructor arg.
+
+
+

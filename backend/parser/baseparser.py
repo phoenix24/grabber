@@ -70,7 +70,7 @@ class BaseParser(object):
                 "brand" : self.get_item_brand(item),
                 "source": self.get_item_source(),
                 "url"   : self.get_item_url(item),
-                "id"    : self.get_item_id(item)
+                "_id"   : self.get_item_id(item)
                 }
         except:
             pass

@@ -74,7 +74,7 @@ class TestInfibeamInventory(unittest.TestCase):
         ibi = InfibeamInventory(self.test_data)
         actual = ibi.get_item_id(ibi.get_items()[0])
 
-        expected = self.item['id']
+        expected = self.item['_id']
         self.assertEquals(expected, actual)
 
         

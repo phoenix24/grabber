@@ -4,7 +4,7 @@
 class attribute(object):
 
     def __init__(self):
-        self.id    = "id"
+        self.id    = "_id"
         self.url   = "url"
         self.name  = "name"
         self.color = "color"

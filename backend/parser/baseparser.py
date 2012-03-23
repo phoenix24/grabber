@@ -5,6 +5,10 @@ import sys
 from httplib2 import Http
 from BeautifulSoup import BeautifulSoup as bsoup
 
+from hashlib import md5
+from pymongo.connection import Connection
+
+
 class BaseParser(object):
     """ the abstract parser class!  """
     
@@ -38,18 +42,36 @@ class BaseParser(object):
     def get_item_image(self, item):
         return None
 
+    def get_item_brand(self, item):
+        return None
+
+    def get_item_url(self, item):
+        return None
+
+    def get_item_source(self):
+        return None
+
+    def get_item_id(self, item):
+        name = "%s_%s" % (self.get_item_source(), self.get_item_name(item))
+        return md5(name).hexdigest()
+    
+
     def get_item_inventory(self, item):
-        inventory = []
+        inventory = {}
         try:
-            inventory = [
-                self.get_item_name(item),
-                self.get_item_color(item),
-                self.get_item_specifications(item),
-                self.get_item_delivery_days(item),
-                self.get_item_stock_status(item),
-                self.get_item_price(item),
-                self.get_item_image(item),
-                ]
+            inventory = {
+                "name"  : self.get_item_name(item),
+                "color" : self.get_item_color(item),
+                "specs" : self.get_item_specifications(item),
+                "delivery" : self.get_item_delivery_days(item),
+                "stock" : self.get_item_stock_status(item),
+                "price" : self.get_item_price(item),
+                "image" : self.get_item_image(item),
+                "brand" : self.get_item_brand(item),
+                "source": self.get_item_source(),
+                "url"   : self.get_item_url(item),
+                "id"    : self.get_item_id(item)
+                }
         except:
             pass
         return inventory
@@ -90,13 +112,26 @@ class BaseGrabber(object):
         self.config = config
         self.parser = self.config['parser']
         self.crawler = self.config['crawler']
-                
-        
-    def grab(self):
 
+        self.db_name = "grabber"
+        self.db_host = "localhost"
+
+        self.connection = Connection(self.db_host)
+        self.db = self.connection[self.db_name]
+        
+                
+
+    def grab(self):
+        # save url+crawled page.
         url = self.config['url']
         crawler = self.crawler(self.config, url)
+
+        # save parsed content.
         parser = self.parser( crawler.crawl_page() )
         
         return parser.get_inventory()
 
+    def dump(self):
+        inventory = self.grab()
+        self.db.inventory.insert(inventory)
+        

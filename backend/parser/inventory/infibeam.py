@@ -20,6 +20,14 @@ class InfibeamInventory(BaseParser):
     def get_item_price(self, item):
         return str(item.fetch('span', 'normal')[0].string.replace(",", "")).strip()
 
+    def get_item_url(self, item):
+        url = (item.fetch('a')[0]['href']).strip()
+        return "http://infibeam.com%s" % url
+
+    def get_item_source(self):
+        return "IBEAM"
+
+
     
 class InfibeamCrawler(BaseCrawler):
     """ infibeam inventory page crawler. """

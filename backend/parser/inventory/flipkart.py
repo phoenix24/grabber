@@ -35,8 +35,14 @@ class FlipkartInventory(BaseParser):
 
     def get_item_image(self, item):
         return item.fetch('div', 'lastUnit')[0].fetch('img')[0]['src']
-    
 
+    def get_item_url(self, item):
+        url = (item.fetch('a', 'fk-srch-title-text')[0]['href']).strip()
+        return "http://flipkart.com/%s" % url
+
+    def get_item_source(self):
+        return "FKART"
+    
 
 class FlipkartCrawler(BaseCrawler):
     """ flipkart inventory page crawler. """

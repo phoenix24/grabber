@@ -20,6 +20,13 @@ class SaholicInventory(BaseParser):
     def get_item_image(self, item):
         return item.fetch('div', 'productImg')[0].fetch('img')[0]['src']
     
+    def get_item_url(self, item):
+        url = (item.fetch('div', 'title')[0].fetch('a')[0]['href']).strip()
+        return "http://saholic.com" + url
+
+    def get_item_source(self):
+        return 'SHOLIC'
+
 class SaholicCrawler(BaseCrawler):
     """ saholic inventory page crawler. """
 

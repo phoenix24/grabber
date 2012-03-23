@@ -1,5 +1,23 @@
 #!/usr/bin/env python
 
+
+class attribute(object):
+
+    def __init__(self):
+        self.id    = "id"
+        self.url   = "url"
+        self.name  = "name"
+        self.color = "color"
+        self.specs = "specs"
+        self.stock = "stock"
+        self.price = "price"
+        self.image = "image"
+        self.brand = "brand"
+        self.source = "source"
+        self.delivery = "delivery"
+        
+
+
 SHOPS = {
     "sulekha"        : {
         "pages" : False,

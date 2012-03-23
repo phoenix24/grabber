@@ -34,5 +34,8 @@ if __name__ == '__main__':
     
     
 
-    for index, item in enumerate(chain(fkg.grab(), ibi.grab(), shc.grab())):
-        print index, item
+    # for index, item in enumerate(chain(fkg.grab(), ibi.grab(), shc.grab())):
+    #     print index, item
+
+    print "dumping fkart data."
+    fkg.dump()

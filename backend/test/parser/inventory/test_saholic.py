@@ -4,8 +4,11 @@ unit-tests for the parsers.saholic module.
 """
 import unittest
 from mock import Mock, patch
+from hashlib import md5
 from httplib2 import Http
 from BeautifulSoup import BeautifulSoup as bsoup
+
+from backend.parser.inventory import attribute
 from backend.parser.inventory.saholic import SaholicInventory, SaholicCrawler, SaholicGrabber
 
 class TestSaholicInventory(unittest.TestCase):
@@ -14,6 +17,22 @@ class TestSaholicInventory(unittest.TestCase):
         self.test = file("backend/test/data/inventory/test_20120310_055847_saholic.html", "r").read()
         self.test_data = str(bsoup(self.test).fetch('div', 'productItem')[0])
 
+        attr = attribute()
+        self.item = {
+            attr.name  : u'Alcatel  OT-230D',
+            attr.id    : md5( 'SHOLIC_Alcatel  OT-230D' ).hexdigest(),
+            attr.url   : u'http://saholic.com/mobile-phones/alcatel-ot-230d-1001720',
+            attr.specs : None,
+            attr.color : None,
+            attr.brand : None,
+            attr.stock : None,
+            attr.source: u'SHOLIC',
+            attr.price : u'949',
+            attr.image : u"http://static2.saholic.com/images/media/1001720/alcatel-ot-230d-icon-1313564847734.jpg",
+            attr.delivery : None,
+            }
+
+        
     def tearDown(self):
         self.test_data = None
         
@@ -27,7 +46,7 @@ class TestSaholicInventory(unittest.TestCase):
         si = SaholicInventory(self.test_data)
         actual = si.get_item_price(si.get_items()[0])
 
-        expected = '949'
+        expected = self.item['price']
         self.assertEquals(expected, actual)
         
         
@@ -35,7 +54,7 @@ class TestSaholicInventory(unittest.TestCase):
         si = SaholicInventory(self.test_data)
         actual = si.get_item_name(si.get_items()[0])
 
-        expected = 'Alcatel  OT-230D'
+        expected = self.item['name']
         self.assertEquals(expected, actual)
 
     
@@ -43,7 +62,7 @@ class TestSaholicInventory(unittest.TestCase):
         si = SaholicInventory(self.test_data)
         actual = si.get_item_delivery_days(si.get_items()[0])
 
-        expected = None
+        expected = self.item['delivery']
         self.assertEquals(expected, actual)
 
         
@@ -51,19 +70,29 @@ class TestSaholicInventory(unittest.TestCase):
         si = SaholicInventory(self.test_data)
         actual = si.get_item_image(si.get_items()[0])
 
-        expected = u"http://static2.saholic.com/images/media/1001720/alcatel-ot-230d-icon-1313564847734.jpg"
+        expected = self.item['image']
+        self.assertEquals(expected, actual)
+
+        
+    def test_get_item_url(self):
+        si = SaholicInventory(self.test_data)
+        actual = si.get_item_url(si.get_items()[0])
+
+        expected = self.item['url']
+        self.assertEquals(expected, actual)
+
+
+    def test_get_item_source(self):
+        si = SaholicInventory(self.test_data)
+        actual = si.get_item_source()
+
+        expected = self.item['source']
         self.assertEquals(expected, actual)
 
         
     def test_get_inventory(self):
         actual = SaholicInventory(self.test_data).get_inventory()
-        expected = [[u'Alcatel  OT-230D',
-                     None,
-                     None,
-                     None,
-                     None,
-                     u'949',
-                     u"http://static2.saholic.com/images/media/1001720/alcatel-ot-230d-icon-1313564847734.jpg"]]
+        expected = [ self.item ]
         self.assertEquals(expected, actual)
 
         

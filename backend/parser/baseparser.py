@@ -6,6 +6,7 @@ from httplib2 import Http
 from BeautifulSoup import BeautifulSoup as bsoup
 
 from hashlib import md5
+from datetime import datetime
 from pymongo.connection import Connection
 
 
@@ -86,26 +87,29 @@ class BaseParser(object):
 class BaseCrawler(object):
     """ the abstract crawler class!  """
     
-    def __init__ (self, config, url):
+    def __init__ (self, config):
         self.config = config
         self.handle = Http(".cache")
 
-        self.url = url
+        self.page = None
         self.resp = None
         self.content = None
         
     def crawl_page(self):
-        self.resp, self.content = self.handle.request( self.url )
-        return self.content
+        self.resp, self.content = self.handle.request( self.config["url"] )
+        self.page = {
+            "url"      : self.config["url"],
+            "source"   : self.config["source"],
+            "tstamp"   : datetime.now(),
+            "content"  : self.content,
+            "response" : self.resp
+            }
+        return self.page
         
 
 class BaseGrabber(object):
     """
     the abstract grabber class!
-    # all the book-keeping needs to be done here.
-    ## todo : store crawled urls into the db.
-    ## todo : store crawled pages into the db.
-    ## todo : store extracted inventory into the db.
     """
 
     def __init__(self, config):
@@ -113,25 +117,21 @@ class BaseGrabber(object):
         self.parser = self.config['parser']
         self.crawler = self.config['crawler']
 
-        self.db_name = "grabber"
-        self.db_host = "localhost"
+        self.db_name = self.config['dbname']
+        self.db_host = self.config['dbhost']
 
         self.connection = Connection(self.db_host)
         self.db = self.connection[self.db_name]
         
-                
-
+        
     def grab(self):
-        # save url+crawled page.
-        url = self.config['url']
-        crawler = self.crawler(self.config, url)
+        crawler = self.crawler(self.config)
+        page = crawler.crawl_page()
 
-        # save parsed content.
-        parser = self.parser( crawler.crawl_page() )
-        
-        return parser.get_inventory()
+        #time-stamp; source; url;
+        self.db.pages.insert(page)
 
-    def dump(self):
-        inventory = self.grab()
-        self.db.inventory.insert(inventory)
-        
+        #parsed inventory
+        parser = self.parser(page['content'])
+        self.db.inventory.insert(parser.get_inventory())
+                

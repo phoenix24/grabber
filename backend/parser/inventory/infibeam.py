@@ -32,8 +32,8 @@ class InfibeamInventory(BaseParser):
 class InfibeamCrawler(BaseCrawler):
     """ infibeam inventory page crawler. """
 
-    def __init__(self, config, url):
-        super(InfibeamCrawler, self).__init__(config, url)
+    def __init__(self, config):
+        super(InfibeamCrawler, self).__init__(config)
 
     
 class InfibeamGrabber(BaseGrabber):

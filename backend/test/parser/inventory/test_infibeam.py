@@ -95,7 +95,7 @@ class TestInfibeamInventory(unittest.TestCase):
 class TestInfibeamCrawler(unittest.TestCase):
             
     def setUp(self):
-        self.crawler = InfibeamCrawler({}, "http://localhost/page")
+        self.crawler = InfibeamCrawler({ "url" : "http://localhost/page" })
 
     def tearDown(self):
         self.crawler = None
@@ -106,6 +106,22 @@ class TestInfibeamCrawler(unittest.TestCase):
 
         
 class TestInfibeamGrabber(unittest.TestCase):
+
+    def setUp(self):
+        self.grabber = InfibeamGrabber({
+                "url" : "http://localhost/page",
+                "parser" : InfibeamInventory,
+                "crawler" : InfibeamCrawler,
+                "dbname" : "GrabberTest",
+                "dbhost" : "localhost",
+                "source" : "IBEAM"
+                })
+        self.grabber.db.pages.drop()
+        self.grabber.db.inventory.drop()
+        
+    def tearDown(self):
+        self.grabber.db.pages.drop()
+        self.grabber.db.inventory.drop()
     
     @staticmethod
     def FakeResponse(a):
@@ -114,20 +130,18 @@ class TestInfibeamGrabber(unittest.TestCase):
 
         #monkey patching test-data to get the correct minimal test-data 
         test_data = str("<ul class='srch_result portrait'>" + test_data + "</ul>")
-        return '200 OK', test_data
-
-        
+        return '200 OK', test_data        
+    
     @patch.object(Http, 'request', FakeResponse)
     def test_inventory_grab(self):
+        # kick inventory grabber.
+        self.grabber.grab()
+        
+        #assert inventory insertion
+        self.assertEquals(1, self.grabber.db.inventory.count())
 
-        grabber = InfibeamGrabber({
-                "url" : "http://localhost/page",
-                "parser" : InfibeamInventory,
-                "crawler" : InfibeamCrawler
-                })
-
-        inventory = grabber.grab()
-        self.assertEquals(1, len(inventory))
+        #assert page insertion
+        self.assertEquals(1, self.grabber.db.pages.count())
 
 
 if '__main__' == __name__:

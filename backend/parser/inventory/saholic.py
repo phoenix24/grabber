@@ -30,8 +30,8 @@ class SaholicInventory(BaseParser):
 class SaholicCrawler(BaseCrawler):
     """ saholic inventory page crawler. """
 
-    def __init__(self, config, url):
-        super(SaholicCrawler, self).__init__(config, url)
+    def __init__(self, config):
+        super(SaholicCrawler, self).__init__(config)
 
     
 class SaholicGrabber(BaseGrabber):

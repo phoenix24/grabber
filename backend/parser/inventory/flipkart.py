@@ -47,9 +47,9 @@ class FlipkartInventory(BaseParser):
 class FlipkartCrawler(BaseCrawler):
     """ flipkart inventory page crawler. """
 
-    def __init__(self, config, url):
-        super(FlipkartCrawler, self).__init__(config, url)
-
+    def __init__(self, config):
+        super(FlipkartCrawler, self).__init__(config)
+        
     
 class FlipkartGrabber(BaseGrabber):
     """ flipkart page grabber """

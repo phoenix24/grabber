@@ -96,7 +96,7 @@ class TestSaholicInventory(unittest.TestCase):
 class TestSaholicCrawler(unittest.TestCase):
             
     def setUp(self):
-        self.crawler = SaholicCrawler({}, "http://localhost/page")
+        self.crawler = SaholicCrawler({ "url" : "http://localhost/page" })
 
     def tearDown(self):
         self.crawler = None
@@ -107,27 +107,40 @@ class TestSaholicCrawler(unittest.TestCase):
 
         
 class TestSaholicGrabber(unittest.TestCase):
+
+    def setUp(self):
+        self.grabber = SaholicGrabber({
+                "url" : "http://localhost/page",
+                "parser" : SaholicInventory,
+                "crawler" : SaholicCrawler,
+                "dbname" : "GrabberTest",
+                "dbhost" : "localhost",
+                "source" : "IBEAM"
+                })
+        self.grabber.db.pages.drop()
+        self.grabber.db.inventory.drop()
+        
+    def tearDown(self):
+        self.grabber.db.pages.drop()
+        self.grabber.db.inventory.drop()
     
     @staticmethod
     def FakeResponse(a):
         test = file("backend/test/data/inventory/test_20120310_055847_saholic.html", "r").read()
         test_data = str(bsoup(test).fetch('div', 'productItem')[0])
-
         return '200 OK', test_data
-
-        
+    
     @patch.object(Http, 'request', FakeResponse)
     def test_inventory_grab(self):
-
-        grabber = SaholicGrabber({
-                "url" : "http://localhost/page",
-                "parser" : SaholicInventory,
-                "crawler" : SaholicCrawler
-                })
-
-        inventory = grabber.grab()
-        self.assertEquals(1, len(inventory))
+        # kick inventory grabber.
+        self.grabber.grab()
         
+        #assert inventory insertion
+        self.assertEquals(1, self.grabber.db.inventory.count())
+
+        #assert page insertion
+        self.assertEquals(1, self.grabber.db.pages.count())
+
         
 if '__main__' == __name__:
     unittest.main()

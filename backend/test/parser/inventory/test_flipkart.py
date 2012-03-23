@@ -116,7 +116,7 @@ class TestFlipkartInventory(unittest.TestCase):
 class TestFlipkartCrawler(unittest.TestCase):
             
     def setUp(self):
-        self.crawler = FlipkartCrawler({}, "http://localhost/page")
+        self.crawler = FlipkartCrawler({ "url" : "http://localhost/page" })
 
     def tearDown(self):
         self.crawler = None
@@ -128,28 +128,40 @@ class TestFlipkartCrawler(unittest.TestCase):
         
 
 class TestFlipkartGrabber(unittest.TestCase):
-    
+
+    def setUp(self):
+        self.grabber = FlipkartGrabber({
+                "url" : "http://localhost/page",
+                "parser" : FlipkartInventory,
+                "crawler" : FlipkartCrawler,
+                "dbname" : "GrabberTest",
+                "dbhost" : "localhost",
+                "source" : "FKART"
+                })
+        self.grabber.db.pages.drop()
+        self.grabber.db.inventory.drop()
+        
+    def tearDown(self):
+        self.grabber.db.pages.drop()
+        self.grabber.db.inventory.drop()
+        
     @staticmethod
     def FakeResponse(a):
         test = file("backend/test/data/inventory/test_20120310_055847_flipkart.html", "r").read()
-        test_data = str(bsoup(test).fetch('div', 'fk-srch-item')[0])
-
+        test_data = str(bsoup(test).fetch('div', 'fk-srch-item'))
         return '200 OK', test_data
 
-        
+    
     @patch.object(Http, 'request', FakeResponse)
     def test_inventory_grab(self):
+        # kick inventory grabber.
+        self.grabber.grab()
+        
+        #assert inventory insertion
+        self.assertEquals(10, self.grabber.db.inventory.count())
 
-        grabber = FlipkartGrabber({
-                "url" : "http://localhost/page",
-                "parser" : FlipkartInventory,
-                "crawler" : FlipkartCrawler
-                })
-
-        inventory = grabber.grab()
-        self.assertEquals(1, len(inventory))
-
-
+        #assert page insertion
+        self.assertEquals(1, self.grabber.db.pages.count())
 
         
 if '__main__' == __name__:
